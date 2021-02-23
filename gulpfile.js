@@ -74,7 +74,7 @@ gulp.task('clean', function() {
   });
 })
 
-gulp.task('clean:dist', function() {
+gulp.task('clean:dist', async function() {
   return del.sync(['dist/**/*', '!dist/images', '!dist/images/**/*']);
 });
 
@@ -87,7 +87,7 @@ gulp.task('default', function(callback) {
   )
 })
 
-gulp.task('build', function(callback) {
+gulp.task('build', async function(callback) {
   runSequence(
     'clean:dist',
     'sass',
