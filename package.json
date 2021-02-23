@@ -25,5 +25,16 @@
     "mongodb": "^3.6.3",
     "mongoose": "^5.11.17",
     "validator": "^13.5.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cache": "^1.1.3",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-useref": "^5.0.0",
+    "gulp4-run-sequence": "^1.0.0"
   }
 }
