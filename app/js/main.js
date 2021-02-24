@@ -32,6 +32,7 @@ loginSubmit.addEventListener('click', async (e) =>{
     })
     if(response.status != 200) throw await response.json()
     response.json()
+    console.log('success')
     let token = response.headers.get('blog-user-id')
     localStorage.setItem('blog-user-id',token)
     /* window.location.href = './index.html' */ 
