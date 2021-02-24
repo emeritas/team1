@@ -44,6 +44,11 @@ router.post('/blog', UserMiddleware.authenticate, BlogControler.saveBlog);
 // gauti visus straipsnius pagal userį
 router.get('/blog', UserMiddleware.authenticate,  BlogControler.getAllBlog)
 // ištrinti blogo straipsnį
+router.delete('/blog/:_id', UserMiddleware.authenticate, BlogControler.removeBlog)
+// uždėti straipsniui paveikslėlį
+router.post('/blog/uploads', UserMiddleware.authenticate, upload.single('test'), BlogControler.addCoverImage)
+// atnaujinti blogo įrašą
+router.patch('/blog/:_id', UserMiddleware.authenticate, BlogControler.updateBlog)
 
 
 

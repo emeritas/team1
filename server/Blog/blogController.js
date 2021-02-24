@@ -28,20 +28,42 @@ getAllBlog = (req, res) => {
     })
 }
 
+
+updateBlog = async(req,res) => {
+    try {
+        let updated = await Blog.findOneAndUpdate(req.params.id, req.body)
+        res.json(updated)
+    } catch (e) {
+        res.status(400).json(e)
+    }
+}
+
+
 removeBlog = async (req, res) => {
     try {
-        await Blog.findOneAndRemove({
-            _id: req.params.id,
-            author: req.user._id
-        })
+        await Blog.findOneAndRemove(req.params.id, req.body)
         res.json('success')
     } catch (e) {
         res.status(400).json(e)
     }
 }
 
+addCoverImage = async (req, res) => {
+    let file = req.file;
+    let blog = req.blog;
+    try {
+      blog.coverImageURL = file.path
+      await blog.save()
+      res.json(blog)
+    } catch (e) {
+  
+    }
+}
+
 module.exports = {
     saveBlog,
     getAllBlog,
-    removeBlog
+    removeBlog,
+    addCoverImage,
+    updateBlog
 }
