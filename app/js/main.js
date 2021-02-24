@@ -39,6 +39,7 @@ loginSubmit.addEventListener('click', async (e) =>{
     } catch(e) {
        console.log(e)
     }
+    window.location.href = './user.html'
 })
 
 // Register fetchas
@@ -65,7 +66,7 @@ registerSubmit.addEventListener('click', async (e) =>{
     })
     if(response.status != 200) throw await response.json()
     response.json()
-    /* window.location.href = './index.html' */ 
+    window.location.href = './index.html'
     } catch(e) {
        console.log(e)
     }
