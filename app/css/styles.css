@@ -1,21 +1,15 @@
-:root {
-  /* Colors*/
-  --primary-color: #f3cf30;
-  --secondary-color: #ed7e31;
-  --buttons-color: #f4f4f4;
-  --text-color: #222;
-  /* Sizes*/
-  --large-text: 1.2rem;
-  --medium-text: 1rem;
-  --small-text: 0.8rem; }
-
+/* Colors*/
+/* Sizes*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
+ul {
+  margin: 0; }
+
 header {
-  background-color: var(--secondary-color); }
+  background-color: #141318; }
   header .container__header {
     margin: auto;
     width: 90%;
@@ -30,21 +24,41 @@ header {
       align-items: center; }
     header .container__header .navigation {
       width: 50%;
+      height: 100%;
       display: flex;
+      align-items: center;
       justify-content: flex-end; }
       header .container__header .navigation .navigation__list {
+        height: 100%;
         list-style: none;
         display: flex;
         align-items: center; }
         header .container__header .navigation .navigation__list button {
-          padding: 7px;
           margin-left: 20px;
-          font-weight: 600;
-          font-size: var(--medium-text);
-          border: 1px solid var(--text-color);
-          border-radius: 10px;
-          background-color: var(--buttons-color);
-          cursor: pointer; }
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: bold; }
+  header .modal .modal-header {
+    display: flex;
+    justify-content: center; }
+  header .modal .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  header .modal .form-group__title .register,
+  header .modal .form-group__title .login {
+    margin-bottom: 20px;
+    width: 300px; }
+  header .modal .form-group__title--modifieris {
+    display: flex;
+    flex-direction: column; }
+
+.btn-warning:focus {
+  color: #212529;
+  background-color: #ffc107;
+  border: 1px solid transparent;
+  box-shadow: none; }
 
 .wrapper {
   margin: auto;
@@ -68,7 +82,7 @@ header {
         margin: 50px 0;
         width: 100%;
         height: 300px;
-        background-color: var(--primary-color); }
+        background-color: #ffc107; }
     .wrapper .container__main .container__users {
       margin: 50px 0;
       display: flex;
@@ -79,13 +93,13 @@ header {
         margin-bottom: 20px;
         width: 24%;
         height: 150px;
-        background-color: var(--primary-color); }
+        background-color: #ffc107; }
 
 footer {
   height: 50px;
   display: flex;
   justify-content: center;
   align-content: center;
-  background-color: var(--secondary-color); }
+  background-color: #141318; }
   footer p {
     padding-top: 15px; }
