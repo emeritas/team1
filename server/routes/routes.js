@@ -17,6 +17,7 @@ const upload = multer({
 const UserController = require('../User/userController')
 // userio autentifikacija
 const UserMiddleware = require('../User/authenticate')
+const BlogControler = require('../Blog/blogController')
 
 router.get('/', (req, res) => {
     res.json('Hello Team1')
@@ -34,5 +35,16 @@ router.get('/users', UserController.getAllUsers)
 router.post('/user',UserMiddleware.authenticate, UserController.updateUserInfo)
 // failu ikelimas(NETIKRINAU AR VEIKIA NES NEZINAU KAIP DABAR PATIKRINT BE FE, KAI BUS FRONT ENDAS TADA TURBUT ZIURESIM)
 router.post('/uploads', UserMiddleware.authenticate, upload.single('test'), UserController.changePicture)
+
+
+
+// Blog routes
+// išsaugoti blogo straipsnį
+router.post('/blog', UserMiddleware.authenticate, BlogControler.saveBlog);
+// gauti visus straipsnius pagal userį
+router.get('/blog', UserMiddleware.authenticate,  BlogControler.getAllBlog)
+// ištrinti blogo straipsnį
+
+
 
 module.exports = router
