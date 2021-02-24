@@ -35,7 +35,7 @@ loginSubmit.addEventListener('click', async (e) =>{
     console.log('success')
     let token = response.headers.get('blog-user-id')
     localStorage.setItem('blog-user-id',token)
-    /* window.location.href = './index.html' */ 
+    window.location.href = './user.html'
     } catch(e) {
        console.log(e)
     }
@@ -70,3 +70,4 @@ registerSubmit.addEventListener('click', async (e) =>{
        console.log(e)
     }
 })
+
