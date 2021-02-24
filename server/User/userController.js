@@ -59,7 +59,7 @@ changePicture = async (req, res) => {
     await user.save()
     res.json(user)
   } catch (e) {
-
+    console.log(e)
   }
 }
 
