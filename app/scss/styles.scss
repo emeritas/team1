@@ -1,3 +1,124 @@
-.body {
+// Variables
+:root {
+  /* Colors*/
+  --primary-color: #f3cf30;
+  --secondary-color: #ed7e31;
+
+  --buttons-color: #f4f4f4;
+  --text-color: #222;
+
+  /* Sizes*/
+  --large-text: 1.2rem;
+  --medium-text: 1rem;
+  --small-text: 0.8rem;
+}
+
+// Resets
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Header
+header {
+  background-color: var(--secondary-color);
+  .container__header {
+    margin: auto;
+    width: 90%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    .logo {
+      width: 50%;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+
+    .navigation {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+
+      .navigation__list {
+        list-style: none;
+        display: flex;
+        align-items: center;
+
+        button {
+          padding: 7px;
+          margin-left: 20px;
+          font-weight: 600;
+          font-size: var(--medium-text);
+          border: 1px solid var(--text-color);
+          border-radius: 10px;
+          background-color: var(--buttons-color);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+// Main
+.wrapper {
+  margin: auto;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+
+  .container__main {
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+
+    .container__user {
+      display: flex;
+      justify-content: space-around;
+      align-content: center;
+
+      div {
+        margin: 50px 0;
+        width: 100%;
+        height: 300px;
+        background-color: var(--primary-color);
+      }
+    }
+
+    .container__users {
+      margin: 50px 0;
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      flex-wrap: wrap;
+
+      div {
+        margin-bottom: 20px;
+        width: 24%;
+        height: 150px;
+        background-color: var(--primary-color);
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: var(--secondary-color);
+
+  p {
+    padding-top: 15px;
+  }
 }
