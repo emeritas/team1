@@ -1,5 +1,7 @@
 const logout = document.getElementById('logout');
 const webtok = localStorage.getItem('blog-user-id');
+
+
 logout.addEventListener('click', async () =>{
     const response = await fetch('http://localhost:3001/api/logout', {
     method:'GET',

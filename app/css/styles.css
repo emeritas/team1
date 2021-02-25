@@ -13,7 +13,7 @@ header {
   header .container__header {
     margin: auto;
     width: 90%;
-    height: 70px;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-content: center; }
@@ -96,7 +96,7 @@ header {
         background-color: #ffc107; }
 
 footer {
-  height: 50px;
+  height: 10vh;
   display: flex;
   justify-content: center;
   align-content: center;

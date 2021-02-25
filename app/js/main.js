@@ -8,14 +8,20 @@ const passwordRegister = document.getElementById('password-register');
 const emailRegister = document.getElementById('email-register');
 const usernameLogin = document.getElementById('username-login');
 const passwordLogin = document.getElementById('password-login');
-
+const registerErr = document.getElementById('err-register')
+const loginErr = document.getElementById('err-login')
 
 // Logino fetchas
 loginSubmit.addEventListener('click', async (e) =>{
     e.preventDefault();
-
+    
     let username = usernameLogin.value
     let password = passwordLogin.value
+    
+    if(!username || !password) {
+        loginErr.innerHTML = "Please fill in form fields with user information"
+        return false;
+    }
 
     let data = {
         username,
@@ -30,16 +36,15 @@ loginSubmit.addEventListener('click', async (e) =>{
         },
         body:JSON.stringify(data)
     })
+    
     if(response.status != 200) throw await response.json()
     response.json()
-    console.log('success')
     let token = response.headers.get('blog-user-id')
     localStorage.setItem('blog-user-id',token)
     window.location.href = './user.html'
     } catch(e) {
-       console.log(e)
+       loginErr.innerHTML = e
     }
-    window.location.href = './user.html'
 })
 
 // Register fetchas
@@ -49,7 +54,10 @@ registerSubmit.addEventListener('click', async (e) =>{
     let username = usernameRegister.value
     let password = passwordRegister.value
     let email = emailRegister.value
-
+    if(!username || !password || !email) {
+        registerErr.innerHTML = "Please fill in ALL form fields with user information"
+        return false;
+    }
     let data = {
         username,
         password,
@@ -68,7 +76,8 @@ registerSubmit.addEventListener('click', async (e) =>{
     response.json()
     window.location.href = './index.html'
     } catch(e) {
-       console.log(e)
+        if(e.keyValue.username) registerErr.innerHTML = `Username already exists.`
+        if(e.keyValue.email) registerErr.innerHTML = `Email already exists.`
     }
 })
 

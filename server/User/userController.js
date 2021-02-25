@@ -64,13 +64,22 @@ changePicture = async (req, res) => {
 }
 
 updateUserInfo = async(req,res) => {
-    let user = req.user
+    let user = req.user;
     try {
-       user.description = req.body.description
+      if(req.body.password || req.body.password2) {
+        if(!req.body.password) throw 'Enter your old password'
+        if(!req.body.password2) throw 'Enter new password'
+        let response = await bcrypt.compare(req.body.password, user.password);
+        if (!response) throw 'Incorrect password';
+        user.password = req.body.password2;
+      }
+       if(req.body.description) user.description = req.body.description;
+       if(req.body.email) user.email = req.body.email;
+       if(req.body.username)user.username = req.body.username;
        await user.save();
-       res.json(user) 
+       res.json(user);
     } catch(e) {
-        console.log(e)
+      console.log(e);
     }
 }
 
