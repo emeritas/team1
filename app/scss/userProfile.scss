@@ -1,0 +1,25 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  form {
+    margin: 60px 0;
+    padding: 10px;
+    min-width: 350px;
+    width: 40%;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    input,
+    textarea {
+      width: 300px;
+    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
