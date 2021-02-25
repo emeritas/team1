@@ -1,6 +1,6 @@
 const logout = document.getElementById('logout');
+const newReview = document.getElementById('newReview');
 const webtok = localStorage.getItem('blog-user-id');
-
 
 logout.addEventListener('click', async () =>{
     const response = await fetch('http://localhost:3001/api/logout', {
@@ -13,3 +13,5 @@ logout.addEventListener('click', async () =>{
 localStorage.removeItem('blog-user-id')
 window.location.href = './index.html' 
 })
+
+

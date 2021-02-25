@@ -11,6 +11,9 @@ const passwordLogin = document.getElementById('password-login');
 const registerErr = document.getElementById('err-register')
 const loginErr = document.getElementById('err-login')
 
+// BLOGO BOXAI
+const blogItem = document.querySelector('.blogItem');
+
 // Logino fetchas
 loginSubmit.addEventListener('click', async (e) =>{
     e.preventDefault();
@@ -80,4 +83,17 @@ registerSubmit.addEventListener('click', async (e) =>{
         if(e.keyValue.email) registerErr.innerHTML = `Email already exists.`
     }
 })
+
+
+blogItem.addEventListener('mouseenter', () => {
+    let blogInfo = document.querySelector('.blogInfo');
+    // blogInfo.classList.remove("hide")
+    blogInfo.style.display="flex"
+})
+blogItem.addEventListener('mouseleave', () => {
+    let blogInfo = document.querySelector('.blogInfo');
+    // blogInfo.classList.add("hide")
+    blogInfo.style.display="none"
+})
+
 
