@@ -54,8 +54,9 @@ logout = async (req, res) => {
 changePicture = async (req, res) => {
   let file = req.file;
   let user = req.user;
+  console.log(file)
   try {
-    user.profileImageURL = file.path
+    user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
     await user.save()
     res.json(user)
   } catch (e) {
@@ -92,11 +93,21 @@ getAllUsers = async (req,res) => {
     }
 }
 
+getCurrentUser = async (req,res) => {
+  let user = req.user;
+  try {
+    res.json(user);
+  } catch(e) {
+    console.log(e);
+  }
+}
+
 module.exports = {
   signUp,
   login,
   logout,
   changePicture,
   getAllUsers,
-  updateUserInfo
+  updateUserInfo,
+  getCurrentUser
 }

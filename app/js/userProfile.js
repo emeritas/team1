@@ -9,7 +9,19 @@ const fileUpload = document.getElementById('fileSubmit');
 //Headerio Atsijungimui
 const logout = document.getElementById('logout');
 const webtok = localStorage.getItem('blog-user-id');
-
+userAvatar()
+async function userAvatar() {
+    try{
+    const response = await fetch('http://localhost:3001/api/currentUser', {
+        method: "GET",
+        headers:{"blog-user-id": webtok}
+        })
+        let user = await response.json()
+        document.getElementById('userAvatar').src = user.profileImageURL
+    }catch(e){
+        console.log(e)
+    }    
+}
 
 logout.addEventListener('click', async () =>{
     const response = await fetch('http://localhost:3001/api/logout', {
@@ -28,10 +40,10 @@ document.getElementById('fileSubmit').addEventListener('click', async (e) => {
     if (document.getElementById('fileInput').files.length === 0) return
     let file = document.getElementById('fileInput').files[0]
 
-
+    console.log(document.getElementById('fileInput').files[0])
     let formData = new FormData()
     formData.append('test', file)
-
+    console.log(formData)
     try {
         const response = await fetch('http://localhost:3001/api/uploads', {
         method: 'POST',
@@ -42,7 +54,8 @@ document.getElementById('fileSubmit').addEventListener('click', async (e) => {
         })
         if (response.status != 200) throw await response.json()
         let user = await response.json()
-        console.log(user)
+        console.log('asd')
+        document.getElementById('userAvatar').src = user.profileImageURL
     } catch (e) {
         console.log(e)
     }
