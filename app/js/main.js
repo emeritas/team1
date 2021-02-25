@@ -14,25 +14,16 @@ const registerErr = document.getElementById('err-register')
 const loginErr = document.getElementById('err-login')
 const logout = document.getElementById('logout');
 const webtok = localStorage.getItem('blog-user-id');
-const loggedIn = document.getElementById('loggedIn')
+const loggedIn = document.querySelector('.loggedIn')
 const body = document.querySelector('body')
 
 if(localStorage.getItem('loggedIn') === 'true') {
-    body.classList.add('loggedIn')
-}
-
-if(body.classList.contains('loggedIn')) {
-    document.getElementById('signup').style.display = 'none';
-    document.getElementById('login').style.display = 'none';
-    document.getElementById('loggedIn').style.display = 'flex'
-} else {
-    document.getElementById('signup').style.display = 'flex';
-    document.getElementById('login').style.display = 'flex';
-    document.getElementById('loggedIn').style.display = 'none'
+    body.classList.add('loggedIn');
+    userAvatar();
 }
 
 
-if(!loggedIn.classList.contains('hide')) userAvatar()
+if(loggedIn) userAvatar()
 async function userAvatar() {
     try{
     const response = await fetch('http://localhost:3001/api/currentUser', {
@@ -40,7 +31,6 @@ async function userAvatar() {
         headers:{"blog-user-id": webtok}
         })
         let user = await response.json()
-        console.log(user)
         document.getElementById('userAvatar').src = user.profileImageURL
     }catch(e){
         console.log(e)
@@ -57,31 +47,8 @@ logout.addEventListener('click', async () =>{
 }).then(res => res.json()).then(data => console.log(data))
 localStorage.removeItem('blog-user-id');
 localStorage.setItem('loggedIn', false);
-/* loggedIn.classList.add('hide')
-document.getElementById('login').classList.remove('hide')
-document.getElementById('signup').classList.remove('hide')
-document.getElementById('ModalLoginForm').style.display = 'block';
-document.querySelector('.modal-backdrop').style.display = 'block';
-document.querySelector('.modal-open').style.overflow = 'hidden'; */
-window.location.href = './index.html'
+window.location.href = './index.html';
 })
-
-userAvatar()
-async function userAvatar() {
-    try{
-    const response = await fetch('http://localhost:3001/api/currentUser', {
-        method: "GET",
-        headers:{"blog-user-id": webtok}
-        })
-        let user = await response.json()
-        document.getElementById('userAvatar').src = user.profileImageURL
-    }catch(e){
-        console.log(e)
-    }    
-}
-/* document.getElementById('login').addEventListener('click', () => {
-    document.getElementById('ModalLoginForm').style.display = 'flex';
-}) */
 // Logino fetchas
 loginSubmit.addEventListener('click', async (e) =>{
     e.preventDefault()

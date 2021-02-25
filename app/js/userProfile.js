@@ -32,8 +32,9 @@ logout.addEventListener('click', async () =>{
         'blog-user-id': webtok
     }
 }).then(res => res.json()).then(data => console.log(data))
-localStorage.removeItem('blog-user-id')
-window.location.href = './index.html' 
+localStorage.removeItem('blog-user-id');
+localStorage.setItem('loggedIn', false);
+window.location.href = './index.html';
 })
 
 document.getElementById('fileSubmit').addEventListener('click', async (e) => {

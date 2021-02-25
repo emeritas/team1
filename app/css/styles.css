@@ -11,17 +11,27 @@ ul {
 li {
   list-style: none; }
 
+.avatar {
+  display: none; }
+
+.loggedIn .signup-button {
+  display: none; }
+
+.loggedIn .avatar {
+  display: block; }
+
 header {
   background-color: #141318;
   width: 100%; }
   header .container__header {
     margin: auto;
-    width: 120%;
+    width: 100%;
     height: 10vh;
     display: flex;
     justify-content: center;
     align-content: center; }
     header .container__header .sign-in-triggers {
+      margin-right: 10%;
       height: 100%;
       width: 100%;
       list-style: none;
