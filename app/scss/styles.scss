@@ -21,18 +21,36 @@ $small-text: 0.8rem;
 ul {
   margin: 0;
 }
+li {
+  list-style: none;
+}
 
 // Header
 header {
   background-color: $secondary-color;
+  width: 100%;
   .container__header {
     margin: auto;
-    width: 90%;
+    width: 120%;
     height: 10vh;
     display: flex;
     justify-content: center;
     align-content: center;
+    .sign-in-triggers {
+      height: 100%;
+      width: 100%;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
 
+      button {
+        margin-left: 20px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
     .logo {
       width: 50%;
       display: flex;
@@ -47,19 +65,8 @@ header {
       align-items: center;
       justify-content: flex-end;
 
-      .navigation__list {
-        height: 100%;
-        list-style: none;
-        display: flex;
-        align-items: center;
-
-        button {
-          margin-left: 20px;
-          cursor: pointer;
-          font-size: 16px;
-          font-weight: bold;
-        }
-      }
+      /* .navigation__list {
+      } */
     }
   }
   .modal {
