@@ -16,7 +16,7 @@ $small-text: 0.8rem;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 body {
@@ -52,6 +52,14 @@ header {
     rgba(16, 16, 19, 0.84) 65%,
     rgba(16, 16, 19, 0)
   );
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  a {
+    color: #ffc107;
+  }
   .container__header {
     margin: auto;
     width: 100%;
@@ -208,7 +216,7 @@ header {
 
         .blogImage {
           width: 100%;
-          background-image: url("https://images.zmonescinema.lt/photo/614a1888-71d1-11eb-9203-aa0000cf3b3e/270x400/602e3cd5db67a_Nykstancios_zuvys_700x1000.jpg");
+          background-image: url('https://images.zmonescinema.lt/photo/614a1888-71d1-11eb-9203-aa0000cf3b3e/270x400/602e3cd5db67a_Nykstancios_zuvys_700x1000.jpg');
           background-size: cover;
           transition: all 0.2s ease-in-out;
           cursor: pointer;
