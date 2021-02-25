@@ -1,2 +1,202 @@
-.body {
-  width: 100%; }
+/* Colors*/
+/* Sizes*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+body {
+  background-color: #fff; }
+
+ul {
+  margin: 0; }
+
+li {
+  list-style: none; }
+
+.avatar {
+  display: none; }
+
+.loggedIn .signup-button {
+  display: none; }
+
+.loggedIn .avatar {
+  display: block; }
+
+header {
+  width: 100%;
+  background-color: #101013e3;
+  background-image: linear-gradient(180deg, #101013 15%, rgba(16, 16, 19, 0.84) 65%, rgba(16, 16, 19, 0)); }
+  header .user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; }
+  header a {
+    color: #ffc107; }
+  header .container__header {
+    margin: auto;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-content: center; }
+    header .container__header .sign-in-triggers {
+      margin-right: 10%;
+      height: 100%;
+      width: 100%;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end; }
+      header .container__header .sign-in-triggers button {
+        margin-left: 20px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold; }
+    header .container__header .logo {
+      width: 50%;
+      display: flex;
+      justify-content: left;
+      align-items: center; }
+    header .container__header .navigation {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end; }
+      header .container__header .navigation .navigation__list {
+        height: 100%;
+        list-style: none;
+        display: flex;
+        align-items: center; }
+        header .container__header .navigation .navigation__list button {
+          margin-left: 20px;
+          padding: 10px 30px;
+          cursor: pointer;
+          font-size: 16px;
+          font-weight: bold;
+          text-transform: uppercase;
+          transition: background-color 0.2s ease-in-out; }
+  header .modal .modal-header {
+    display: flex;
+    justify-content: center; }
+  header .modal .form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  header .modal .form-group__title .register,
+  header .modal .form-group__title .login {
+    margin-bottom: 20px;
+    width: 300px; }
+  header .modal .form-group__title--modifieris {
+    display: flex;
+    flex-direction: column; }
+
+.btn-warning:focus {
+  color: #212529;
+  background-color: #ffc107;
+  border: 1px solid transparent;
+  box-shadow: none; }
+
+.wrapper {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #101013e3; }
+  .wrapper .container__main {
+    margin: 50px auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center; }
+    .wrapper .container__main .container__user {
+      margin: auto;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-content: center;
+      background-color: rgba(20, 20, 25, 0);
+      background-image: radial-gradient(circle farthest-corner at 80% 80%, #1413182d, #1414195e);
+      border-radius: 10px; }
+      .wrapper .container__main .container__user div {
+        margin: 60px 0 60px 0;
+        width: 90%;
+        height: 300px; }
+    .wrapper .container__main .container__users {
+      margin: 100px 0 50px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-content: center; }
+      .wrapper .container__main .container__users h1 {
+        margin-top: 10px;
+        font-size: 25px;
+        line-height: 35px;
+        text-transform: uppercase;
+        color: #ffc107; }
+      .wrapper .container__main .container__users .usersReviews {
+        margin: 25px 0 25px 0;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        flex-wrap: wrap; }
+      .wrapper .container__main .container__users .usersReviews div {
+        width: 23%;
+        height: 400px;
+        border-radius: 10px; }
+        .wrapper .container__main .container__users .usersReviews div .blogImage {
+          width: 100%;
+          background-image: url("https://images.zmonescinema.lt/photo/614a1888-71d1-11eb-9203-aa0000cf3b3e/270x400/602e3cd5db67a_Nykstancios_zuvys_700x1000.jpg");
+          background-size: cover;
+          transition: all 0.2s ease-in-out;
+          cursor: pointer; }
+          .wrapper .container__main .container__users .usersReviews div .blogImage:hover {
+            box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.486);
+            transform: translateY(-10px); }
+          .wrapper .container__main .container__users .usersReviews div .blogImage .blogInfo {
+            margin: auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-content: center;
+            background-color: rgba(12, 12, 12, 0.836);
+            display: none; }
+            .wrapper .container__main .container__users .usersReviews div .blogImage .blogInfo h2 {
+              font-size: 30px;
+              font-weight: 400;
+              color: #fff;
+              text-align: center; }
+            .wrapper .container__main .container__users .usersReviews div .blogImage .blogInfo h4 {
+              font-size: 20px;
+              font-weight: lighter;
+              color: #fff;
+              text-align: center; }
+            .wrapper .container__main .container__users .usersReviews div .blogImage .blogInfo button {
+              margin: 40px 80px 0 80px;
+              padding: 10px 30px;
+              background-color: #ffc107;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 16px;
+              font-weight: bold;
+              text-transform: uppercase;
+              transition: background-color 0.2s ease-in-out; }
+
+footer {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #101013e3;
+  background-image: linear-gradient(0deg, #101013 15%, rgba(16, 16, 19, 0.84) 65%, rgba(16, 16, 19, 0)); }
+  footer p {
+    padding-top: 40px;
+    color: rgba(255, 255, 255, 0.226); }
