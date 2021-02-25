@@ -7,7 +7,7 @@ saveBlog = async (req, res) => {
     let blog = new Blog({
         content: body.content,
         title: body.title,
-        category: body.category,
+        category: req.category._id,
         author: req.user._id,
     })
 

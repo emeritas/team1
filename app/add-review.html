@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add review</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/add-review.css">
+    
+    <!-- JS -->
+    <script defer src="./js/main.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container__header">
+            <div class="logo">LOGO</div>
+            <nav class="navigation">
+                <ul class="navigation__list"> 
+                    <li><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalRegisterForm" id="signup">Signup</button></li>
+                    <li><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalLoginForm" id="login">Login</button></li>
+                </ul>
+            </nav>
+        </div>
+        <div id="ModalRegisterForm" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Register</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form id="register">
+                            <input type="hidden" name="_token" value="">
+                            <div class="form-group">
+                                <label class="control-label">E-Mail Address</label>
+                                <div>
+                                    <input id="email-register" required type="email" class="form-control input-lg" name="email" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Username</label>
+                                <div>
+                                    <input id="username-register" required type="text" class="form-control input-lg" name="username" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Password</label>
+                                <div>
+                                    <input id="password-register" required type="password" class="form-control input-lg" name="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group__title">
+                                    <button id="registerSubmit" type="submit" class="btn btn-warning register">Register</button>
+                                    <p id="err-register" class="err"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div id="ModalLoginForm" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Login</h2>
+                    </div>
+                        <div class="modal-body">
+                            <form role="form" id="login">
+                                <input type="hidden" name="_token" value="">
+                                <div class="form-group">
+                                    <label class="control-label">Username</label>
+                                    <div>
+                                        <input id="username-login" required type="text" class="form-control input-lg" name="username" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Password</label>
+                                    <div>
+                                        <input id="password-login" required type="password" class="form-control input-lg" name="password">
+                                    </div>
+                                </div>
+                                <div class="form-group form-group__title">
+                                    <div>
+                                        <button id="loginSubmit" type="submit" class="btn btn-warning login">Login</button>
+                                        <p id="err-login" class="err"></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <section class="section grey-bg">            
+                <div class="container text-center">                    
+                    <h1 class="main-title mb-5">Add new review</h1>
+                    <div class="row justify-content-center" id="row_style">
+                        <div class="col-md-8 col-md-offset-4">
+                            <div class="form-group">
+                                <input type="text" class="form-control field-style" placeholder="Title">
+                            </div>
+                            <div class="selectWrapper field-style">
+                                <select name="category" id="category" class="categories">
+                                    <option value="">Horror</option>
+                                    <option value="">Comedy</option>
+                                    <option value="">Drama</option>
+                                    <option value="">Disney</option>
+                                </select>
+                            </div>
+                            <textarea id="editor" class="editor field-style">Reviews content</textarea>
+                            <br>
+                            <div class="form-group">
+                                <input type="text" class="form-control field-style" placeholder="Tags">
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary" id="submit">Submit new post</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; All rights reserved | <span id="current-year"></span></p>
+    </footer>
+    <script src="./js/jquery-1.10.2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+</body>
+</html>
