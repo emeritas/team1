@@ -11,6 +11,20 @@ const passwordLogin = document.getElementById('password-login');
 const registerErr = document.getElementById('err-register')
 const loginErr = document.getElementById('err-login')
 
+userAvatar()
+async function userAvatar() {
+    try{
+    const response = await fetch('http://localhost:3001/api/currentUser', {
+        method: "GET",
+        headers:{"blog-user-id": webtok}
+        })
+        let user = await response.json()
+        document.getElementById('userAvatar').src = user.profileImageURL
+    }catch(e){
+        console.log(e)
+    }    
+}
+
 // Logino fetchas
 loginSubmit.addEventListener('click', async (e) =>{
     e.preventDefault();
