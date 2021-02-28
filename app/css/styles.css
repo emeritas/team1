@@ -111,14 +111,14 @@ header {
   justify-content: center;
   align-content: center;
   background-color: #101013e3; }
-  .wrapper .container__main {
+  .wrapper .container {
     margin: 50px auto;
     width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center; }
-    .wrapper .container__main .container__user {
+    .wrapper .container .container__user {
       margin: auto;
       width: 100%;
       display: flex;
@@ -127,42 +127,42 @@ header {
       background-color: rgba(20, 20, 25, 0);
       background-image: radial-gradient(circle farthest-corner at 80% 80%, #1413182d, #1414195e);
       border-radius: 10px; }
-      .wrapper .container__main .container__user div {
+      .wrapper .container .container__user div {
         margin: 60px 0 60px 0;
         width: 90%;
         height: 300px; }
-    .wrapper .container__main .container__users {
+    .wrapper .container .container__users {
       margin: 100px 0 50px 0;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-content: center; }
-      .wrapper .container__main .container__users h1 {
+      .wrapper .container .container__users h2 {
         margin-top: 10px;
         font-size: 25px;
         line-height: 35px;
         text-transform: uppercase;
         color: #ffc107; }
-      .wrapper .container__main .container__users .usersReviews {
+      .wrapper .container .container__users .usersReviews {
         margin: 25px 0 25px 0;
         display: flex;
         justify-content: space-between;
         align-content: center;
         flex-wrap: wrap; }
-      .wrapper .container__main .container__users .usersReviews div {
+      .wrapper .container .container__users .usersReviews div {
         width: 23%;
         height: 400px;
         border-radius: 10px; }
-        .wrapper .container__main .container__users .usersReviews div .blogImage {
+        .wrapper .container .container__users .usersReviews div .blogImage {
           width: 100%;
           background-image: url("https://images.zmonescinema.lt/photo/614a1888-71d1-11eb-9203-aa0000cf3b3e/270x400/602e3cd5db67a_Nykstancios_zuvys_700x1000.jpg");
           background-size: cover;
           transition: all 0.2s ease-in-out;
           cursor: pointer; }
-          .wrapper .container__main .container__users .usersReviews div .blogImage:hover {
+          .wrapper .container .container__users .usersReviews div .blogImage:hover {
             box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.486);
             transform: translateY(-10px); }
-          .wrapper .container__main .container__users .usersReviews div .blogImage .blogInfo {
+          .wrapper .container .container__users .usersReviews div .blogImage .blogInfo {
             margin: auto;
             width: 100%;
             display: flex;
@@ -171,18 +171,18 @@ header {
             align-content: center;
             background-color: rgba(12, 12, 12, 0.836);
             display: none; }
-            .wrapper .container__main .container__users .usersReviews div .blogImage .blogInfo h2 {
+            .wrapper .container .container__users .usersReviews div .blogImage .blogInfo h3 {
               font-size: 30px;
               font-weight: 400;
               color: #fff;
               text-align: center; }
-            .wrapper .container__main .container__users .usersReviews div .blogImage .blogInfo h4 {
+            .wrapper .container .container__users .usersReviews div .blogImage .blogInfo h4 {
               font-size: 20px;
               font-weight: lighter;
               color: #fff;
               text-align: center; }
-            .wrapper .container__main .container__users .usersReviews div .blogImage .blogInfo button {
-              margin: 40px 80px 0 80px;
+            .wrapper .container .container__users .usersReviews div .blogImage .blogInfo button {
+              margin: 40px 60px 0 60px;
               padding: 10px 30px;
               background-color: #ffc107;
               border: none;
