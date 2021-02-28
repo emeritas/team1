@@ -22,7 +22,8 @@ async function getCategories() {
                 option = document.createElement("option");
                 option.classList = "single-category";
                 option.innerText = category.title;
-                option.value = category._id;
+                option.dataset.id = category._id;
+                option.value = category.title;
             }
             reviewCategory.append(option)
             
@@ -35,7 +36,7 @@ async function getCategories() {
 submit.addEventListener('click', async (e)=> {
     e.preventDefault();
     let title = reviewTitle.value;
-    let category = reviewCategory.options[reviewCategory.selectedIndex].value;
+    let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.id;
     let content = reviewContent.value;
 
     let data = {
