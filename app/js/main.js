@@ -125,15 +125,15 @@ registerSubmit.addEventListener('click', async (e) =>{
 })
 
 
-blogItem.addEventListener('mouseenter', () => {
-    let blogInfo = document.querySelector('.blogInfo');
-    // blogInfo.classList.remove("hide")
-    blogInfo.style.display="flex"
-})
-blogItem.addEventListener('mouseleave', () => {
-    let blogInfo = document.querySelector('.blogInfo');
-    // blogInfo.classList.add("hide")
-    blogInfo.style.display="none"
-})
+// blogItem.addEventListener('mouseenter', () => {
+//     let blogInfo = document.querySelector('.blogInfo');
+//     // blogInfo.classList.remove("hide")
+//     blogInfo.style.display="flex"
+// })
+// blogItem.addEventListener('mouseleave', () => {
+//     let blogInfo = document.querySelector('.blogInfo');
+//     // blogInfo.classList.add("hide")
+//     blogInfo.style.display="none"
+// })
 
 
