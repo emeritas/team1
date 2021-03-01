@@ -21,7 +21,10 @@ li {
 .main-bg {
   color: #fff; }
 
-.main-bg h1, .main-bg h2, .main-bg h3, .main-bg h4 {
+.main-bg h1,
+.main-bg h2,
+.main-bg h3,
+.main-bg h4 {
   color: #ffc107; }
 
 .avatar {
