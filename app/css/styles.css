@@ -6,8 +6,8 @@
   box-sizing: border-box;
   font-family: "Roboto Condensed", sans-serif; }
 
-.section {
-  padding: 25px 0; }
+section {
+  padding: 50px 0; }
 
 body {
   background-color: #fff; }
@@ -17,6 +17,12 @@ ul {
 
 li {
   list-style: none; }
+
+.main-bg {
+  color: #fff; }
+
+.main-bg h1, .main-bg h2, .main-bg h3, .main-bg h4 {
+  color: #ffc107; }
 
 .avatar {
   display: none; }
@@ -119,41 +125,107 @@ header {
     flex-direction: column;
     justify-content: center;
     align-content: center; }
-    .wrapper .container .oneUser {
-      margin: auto;
+
+.oneUser {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  background-color: rgba(20, 20, 25, 0);
+  background-image: radial-gradient(circle farthest-corner at 80% 80%, #1413182d, #1414195e);
+  border-radius: 10px; }
+  .oneUser .oneUserblogItem {
+    margin: 60px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center; }
+    .oneUser .oneUserblogItem .oneUserblogItem__image {
+      background-color: rgba(255, 255, 255, 0.212);
       width: 100%;
-      display: flex;
-      justify-content: space-around;
-      align-content: center;
-      background-color: rgba(20, 20, 25, 0);
-      background-image: radial-gradient(circle farthest-corner at 80% 80%, #1413182d, #1414195e);
+      height: 300px;
       border-radius: 10px; }
-      .wrapper .container .oneUser .oneUserblogItem {
-        margin: 60px;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center; }
-        .wrapper .container .oneUser .oneUserblogItem .oneUserblogItem__image {
-          background-color: rgba(255, 255, 255, 0.212);
+    .oneUser .oneUserblogItem .oneUserblogItem__info {
+      margin-top: 50px; }
+      .oneUser .oneUserblogItem .oneUserblogItem__info h3 {
+        margin-bottom: 20px;
+        font-size: 20px;
+        color: #ffc107;
+        text-transform: uppercase; }
+      .oneUser .oneUserblogItem .oneUserblogItem__info h4 {
+        margin-bottom: 10px;
+        color: #ffc107; }
+      .oneUser .oneUserblogItem .oneUserblogItem__info p {
+        color: #fff; }
+      .oneUser .oneUserblogItem .oneUserblogItem__info button {
+        margin: 40px 0;
+        padding: 10px 30px;
+        background-color: #ffc107;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background-color 0.2s ease-in-out; }
+
+.users {
+  margin: 100px 0 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center; }
+  .users h2 {
+    margin-top: 10px;
+    font-size: 25px;
+    line-height: 35px;
+    text-transform: uppercase;
+    color: #ffc107; }
+  .users .usersBlogItems {
+    margin: 25px 0 25px 0;
+    display: flex;
+    flex-direction: column;
+    align-content: center; }
+    .users .usersBlogItems .blogItem {
+      margin: 10px 0 50px 0;
+      height: 700px;
+      border-radius: 10px; }
+      .users .usersBlogItems .blogItem .blogImage {
+        width: 100%;
+        height: 700px;
+        border-radius: 10px;
+        background-image: url("https://images.zmonescinema.lt/photo/614a1888-71d1-11eb-9203-aa0000cf3b3e/270x400/602e3cd5db67a_Nykstancios_zuvys_700x1000.jpg");
+        background-size: cover;
+        transition: all 0.2s ease-in-out;
+        cursor: pointer; }
+        .users .usersBlogItems .blogItem .blogImage:hover {
+          box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.486);
+          transform: translateY(-10px); }
+        .users .usersBlogItems .blogItem .blogImage .blogInfo {
+          margin: auto;
           width: 100%;
-          height: 300px;
-          border-radius: 10px; }
-        .wrapper .container .oneUser .oneUserblogItem .oneUserblogItem__info {
-          margin-top: 50px; }
-          .wrapper .container .oneUser .oneUserblogItem .oneUserblogItem__info h3 {
-            margin-bottom: 20px;
+          height: 700px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-content: center;
+          border-radius: 10px;
+          background-color: rgba(12, 12, 12, 0.836);
+          display: none; }
+          .users .usersBlogItems .blogItem .blogImage .blogInfo h3 {
+            font-size: 30px;
+            font-weight: 400;
+            color: #fff;
+            text-align: center; }
+          .users .usersBlogItems .blogItem .blogImage .blogInfo h4 {
             font-size: 20px;
-            color: #ffc107;
-            text-transform: uppercase; }
-          .wrapper .container .oneUser .oneUserblogItem .oneUserblogItem__info h4 {
-            margin-bottom: 10px;
-            color: #ffc107; }
-          .wrapper .container .oneUser .oneUserblogItem .oneUserblogItem__info p {
-            color: #fff; }
-          .wrapper .container .oneUser .oneUserblogItem .oneUserblogItem__info button {
-            margin: 40px 0;
+            font-weight: lighter;
+            color: #fff;
+            text-align: center; }
+          .users .usersBlogItems .blogItem .blogImage .blogInfo button {
+            margin: 40px 60px 0 60px;
             padding: 10px 30px;
             background-color: #ffc107;
             border: none;
@@ -163,70 +235,6 @@ header {
             font-weight: bold;
             text-transform: uppercase;
             transition: background-color 0.2s ease-in-out; }
-    .wrapper .container .users {
-      margin: 100px 0 50px 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-content: center; }
-      .wrapper .container .users h2 {
-        margin-top: 10px;
-        font-size: 25px;
-        line-height: 35px;
-        text-transform: uppercase;
-        color: #ffc107; }
-      .wrapper .container .users .usersBlogItems {
-        margin: 25px 0 25px 0;
-        display: flex;
-        flex-direction: column;
-        align-content: center; }
-        .wrapper .container .users .usersBlogItems .blogItem {
-          margin: 10px 0 50px 0;
-          height: 700px;
-          border-radius: 10px; }
-          .wrapper .container .users .usersBlogItems .blogItem .blogImage {
-            width: 100%;
-            height: 700px;
-            border-radius: 10px;
-            background-image: url("https://images.zmonescinema.lt/photo/614a1888-71d1-11eb-9203-aa0000cf3b3e/270x400/602e3cd5db67a_Nykstancios_zuvys_700x1000.jpg");
-            background-size: cover;
-            transition: all 0.2s ease-in-out;
-            cursor: pointer; }
-            .wrapper .container .users .usersBlogItems .blogItem .blogImage:hover {
-              box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.486);
-              transform: translateY(-10px); }
-            .wrapper .container .users .usersBlogItems .blogItem .blogImage .blogInfo {
-              margin: auto;
-              width: 100%;
-              height: 700px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-content: center;
-              border-radius: 10px;
-              background-color: rgba(12, 12, 12, 0.836);
-              display: none; }
-              .wrapper .container .users .usersBlogItems .blogItem .blogImage .blogInfo h3 {
-                font-size: 30px;
-                font-weight: 400;
-                color: #fff;
-                text-align: center; }
-              .wrapper .container .users .usersBlogItems .blogItem .blogImage .blogInfo h4 {
-                font-size: 20px;
-                font-weight: lighter;
-                color: #fff;
-                text-align: center; }
-              .wrapper .container .users .usersBlogItems .blogItem .blogImage .blogInfo button {
-                margin: 40px 60px 0 60px;
-                padding: 10px 30px;
-                background-color: #ffc107;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-                font-weight: bold;
-                text-transform: uppercase;
-                transition: background-color 0.2s ease-in-out; }
 
 /* INPUT TEXTAREA */
 ::placeholder {
@@ -271,12 +279,38 @@ header {
     cursor: pointer;
     overflow: hidden; }
 
+/* VIEW PROFILE PAGE */
+.user__image {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #ffc107;
+  border-radius: 50%; }
+
+.card {
+  padding: 25px; }
+
+.card--dark {
+  background-color: rgba(20, 20, 25, 0);
+  background-image: radial-gradient(circle farthest-corner at 80% 80%, #1413182d, #1414195e);
+  border-radius: 10px; }
+
+.blog__item {
+  margin-bottom: 20px; }
+
+.main-bg {
+  background-color: #101013e3; }
+
 .grey-bg {
   background-color: #f5f5f5; }
 
 @media screen and (min-width: 768px) {
   .section {
     padding: 40px 0; } }
+
+@media screen and (min-width: 992px) {
+  .user__image {
+    width: 200px;
+    height: 200px; } }
 
 footer {
   height: 10vh;
@@ -304,36 +338,36 @@ footer {
       cursor: pointer; }
 
 @media screen and (min-width: 1040px) {
-  main .wrapper .container .oneUser .oneUserblogItem {
+  .oneUser .oneUserblogItem {
     flex-direction: row; }
-    main .wrapper .container .oneUser .oneUserblogItem .oneUserblogItem__image {
+    .oneUser .oneUserblogItem .oneUserblogItem__image {
       margin-right: 20px;
       width: 60%;
       height: 100%; }
-    main .wrapper .container .oneUser .oneUserblogItem .oneUserblogItem__info {
+    .oneUser .oneUserblogItem .oneUserblogItem__info {
       margin-top: 0px;
       margin-left: 30px;
       padding-right: 30px;
       width: 40%;
       height: 100%; }
-  main .wrapper .container .users h2 {
+  .users h2 {
     margin-top: 10px;
     font-size: 25px;
     line-height: 35px;
     text-transform: uppercase;
     color: #ffc107; }
-  main .wrapper .container .users .usersBlogItems {
+  .users .usersBlogItems {
     margin: 25px 0 25px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
     flex-wrap: wrap; }
-    main .wrapper .container .users .usersBlogItems .blogItem {
+    .users .usersBlogItems .blogItem {
       width: 23%;
       height: 400px;
       border-radius: 10px; }
-      main .wrapper .container .users .usersBlogItems .blogItem .blogImage {
+      .users .usersBlogItems .blogItem .blogImage {
         height: 400px; }
-        main .wrapper .container .users .usersBlogItems .blogItem .blogImage .blogInfo {
+        .users .usersBlogItems .blogItem .blogImage .blogInfo {
           height: 400px; } }

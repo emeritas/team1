@@ -250,18 +250,3 @@ footer {
     }
   }
 }
-
-// Tablet and desctop
-@media screen and (min-width: 1040px) {
-  main {
-    .container-sm {
-      .row {
-        .col-sm-4 {
-          .profilePicture {
-            margin: 200px auto auto auto;
-          }
-        }
-      }
-    }
-  }
-}
