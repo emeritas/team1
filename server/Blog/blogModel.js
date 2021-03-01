@@ -14,7 +14,7 @@ let BlogSchema = new mongoose.Schema({
         unique: true
     },
     publishDate: {
-        type: Date
+        type: String
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
@@ -28,7 +28,8 @@ let BlogSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         require: true, 
         ref: 'User'
-    }
+    },
+    
 })
 
 let Blog = mongoose.model('Blog', BlogSchema)

@@ -38,13 +38,17 @@ submit.addEventListener('click', async (e)=> {
     let title = reviewTitle.value;
     let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.id;
     let content = reviewContent.value;
+    let file = document.getElementById('fileInput').files[0]
+    let formData = new FormData()
+    formData.append('test', file)
     
     let data = {
         title,
         category,
-        content
+        content,
+        formData
     }
-    
+
     try{
         const response = await fetch('http://localhost:3001/api/blog', {
         method:'POST',
@@ -53,8 +57,14 @@ submit.addEventListener('click', async (e)=> {
             'blog-user-id': webtok
         },
         body:JSON.stringify(data)
-        
     })
+    /* const response1 = await fetch('http://localhost:3001/api/uploads', {
+        method: 'POST',
+        headers: {
+            'blog-user-id': webtok
+        },
+        body: formData
+        }) */
     if(response.status != 200) throw await response.json()
     response.json()
     }catch(e) {
@@ -62,7 +72,7 @@ submit.addEventListener('click', async (e)=> {
     }
 })
 
-document.getElementById('fileSubmit').addEventListener('click', async (e) => {
+/* document.getElementById('fileSubmit').addEventListener('click', async (e) => {
     e.preventDefault()
     if (document.getElementById('fileInput').files.length === 0) return
     let file = document.getElementById('fileInput').files[0]
@@ -84,4 +94,4 @@ document.getElementById('fileSubmit').addEventListener('click', async (e) => {
     } catch (e) {
         console.log(e)
     }
-})
+}) */

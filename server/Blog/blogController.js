@@ -4,18 +4,18 @@ const Blog = require('./blogModel')
 
 saveBlog = async (req, res) => {
     let body = req.body;
-    let file = req.body.file;
-    console.log(req.file)
+    let file = req.file;
+    console.log(file)
     let blog = new Blog({
         content: body.content,
         title: body.title,
         category: body.category,
         author: req.user._id,
-        coverImageURL: `http://localhost:3001/uploads/${file}`
+        publishDate: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`
     })
-
+  
     try {
-
+        blog.coverImageURL = `http://localhost:3001/uploads/${file.name}`
         let savedBlog = await blog.save()
         res.json(savedBlog)
     } catch(e) {
