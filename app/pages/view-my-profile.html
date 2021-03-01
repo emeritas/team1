@@ -18,27 +18,48 @@
 </head>
 <body>
     <header>
-        <div class="container__header">
-            <div class="logo">LOGO</div>
-            <nav class="navigation">
-                <ul class="navigation__list"> 
-                    <li><a href="../index.html"></a>Home</li>
-                    <li><a href="#"></a>About us</li>
-                    <li><a href="#"></a>Contact us</li>
-                    <li>
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img id="userAvatar" class="user-avatar" src="" alt="">
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Edit User Settings</a>
-                            <a class="dropdown-item" href="#">Create A New Review</a>
-                            <a class="dropdown-item" href="./userProfile.html">View My Profile</a>
-                            <div class="dropdown-divider"></div>
-                            <a id="logout" class="dropdown-item" href="#">Logout</a>
-                          </div>
-                    </li> 
-                </ul>
+        <div class="container d-flex justify-content-between">
+            <div class="logo d-flex align-items-center">
+                <a aria-label="brand-name" class="brand-name" href="index.html">Postal</a>
+            </div>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Read By Genre
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
             </nav>
+            <ul class="sign-in-triggers">
+                <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalRegisterForm" id="signup">Signup</button></li>
+                <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalLoginForm" id="login">Login</button></li>
+                <li id="loggedIn" class="avatar">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img id="userAvatar" class="user-avatar" src="https://images.unsplash.com/photo-1614114531011-26afb982f0ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="">
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./userProfile.html">Edit User Settings</a>
+                        <a class="dropdown-item" href="./add-review.html">Create A New Review</a>
+                        <a id="viewMyProfile" class="dropdown-item" href="./pages/view-my-profile.html">View My Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="logout" class="dropdown-item" href="#">Logout</a>
+                      </div>
+                </li>
+            </ul>
         </div>
         <div id="ModalRegisterForm" class="modal fade">
             <div class="modal-dialog" role="document">

@@ -14,86 +14,157 @@
 </head>
 <body>
     <header>
-        <div class="container__header">
-            <div class="logo">LOGO</div>
+        <div class="container d-flex justify-content-between">
+            <div class="logo d-flex align-items-center">
+                <a aria-label="brand-name" class="brand-name" href="index.html">Postal</a>
+            </div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarText">
                   <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link text-warning" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                      <a class="nav-link" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle text-warning" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Read By Genre
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+            </nav>
+            <ul class="sign-in-triggers">
+                <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalRegisterForm" id="signup">Signup</button></li>
+                <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalLoginForm" id="login">Login</button></li>
+                <li id="loggedIn" class="avatar">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img id="userAvatar" class="user-avatar" src="https://images.unsplash.com/photo-1614114531011-26afb982f0ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="">
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-warning" href="#">Action</a>
-                        <a class="dropdown-item text-warning" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-warning" href="#">Something else here</a>
-                      </div>
-                    </li>
-                </div>
-              </nav>
-            <ul class="navigation__list"> 
-                <li>
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img id="userAvatar" class="user-avatar" src="" alt="">
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Edit User Settings</a>
-                        <a class="dropdown-item" href="#">Create A New Review</a>
-                        <a class="dropdown-item" href="./userProfile.html">View My Profile</a>
+                        <a class="dropdown-item" href="./userProfile.html">Edit User Settings</a>
+                        <a class="dropdown-item" href="./add-review.html">Create A New Review</a>
+                        <a id="viewMyProfile" class="dropdown-item" href="#">View My Profile</a>
                         <div class="dropdown-divider"></div>
                         <a id="logout" class="dropdown-item" href="#">Logout</a>
-                    </div>
-                </li>   
+                      </div>
+                </li>
             </ul>
         </div>
-    </header>
-    <main>
-        <div class="wrapper">
-            <section class="section grey-bg">
-                <div class="container text-center">
-                    <div class="row justify-content-center" id="row_style">
-                        <div class="col-md-8 col-md-offset-4">
-                            <!-- <form> -->
-                                <p class="note">NOTE: the fields that you leave empty will NOT change</p>
-                                <div class="form-group">
-                                  <input type="email" class="form-control field-style" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter New Email Address">
+        <div id="ModalRegisterForm" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Register</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form id="register">
+                            <input type="hidden" name="_token" value="">
+                            <div class="form-group">
+                                <label class="control-label">E-Mail Address</label>
+                                <div>
+                                    <input id="email-register" required type="email" class="form-control input-lg" name="email" value="">
                                 </div>
-                                <div class="form-group">
-                                    <input type="username" class="form-control field-style" id="InputUsername" placeholder="Enter New Username">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Username</label>
+                                <div>
+                                    <input id="username-register" required type="text" class="form-control input-lg" name="username" value="">
                                 </div>
-                                <div class="form-group">
-                                  <input type="password" class="form-control field-style" id="InputPassword" placeholder="Enter Old Password">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Password</label>
+                                <div>
+                                    <input id="password-register" required type="password" class="form-control input-lg" name="password">
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control field-style" id="InputPassword2" placeholder="Enter New Password">
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group__title">
+                                    <button id="registerSubmit" type="submit" class="btn btn-warning register">Register</button>
+                                    <p id="err-register" class="err"></p>
                                 </div>
-                                <div class="form-group d-flex flex-column justify-content-center">
-                                    <label for="InputAvatar">Upload File To Change Profile Avatar</label>
-                                    <input type="file" id="fileInput" class="form-control__file btn btn-warning" id="InputAvatar">
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div id="ModalLoginForm" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Login</h2>
+                    </div>
+                        <div class="modal-body">
+                            <form role="form" id="login">
+                                <input type="hidden" name="_token" value="">
+                                <div class="form-group">
+                                    <label class="control-label">Username</label>
                                     <div>
-                                        <button class="btn btn-warning my-5" id="fileSubmit">Upload File</button>
+                                        <input id="username-login" required type="text" class="form-control input-lg" name="username" value="">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="InputDescription">Change Your Description</label>
-                                    <textarea class="editor field-style" name="comment" id="InputDescription"></textarea>
+                                    <label class="control-label">Password</label>
+                                    <div>
+                                        <input id="password-login" required type="password" class="form-control input-lg" name="password">
+                                    </div>
                                 </div>
-                                <button id="submit" type="submit" class="btn btn-warning btn-md">Change Your Information</button>
-                                <p class="err"></p>
-                             <!--  </form> -->
+                                <div class="form-group form-group__title">
+                                    <div>
+                                        <button id="loginSubmit" type="submit" class="btn btn-warning login">Login</button>
+                                        <p id="err-login" class="err"></p>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+    </header>
+    <main >
+        <section class="section grey-bg">
+            <div class="container text-center">
+                <div class="row justify-content-center" id="row_style">
+                    <div class="col-md-8 col-md-offset-4">
+                        <!-- <form> -->
+                            <p class="note">NOTE: the fields that you leave empty will NOT change</p>
+                            <div class="form-group">
+                                <input type="email" class="form-control field-style" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter New Email Address">
+                            </div>
+                            <div class="form-group">
+                                <input type="username" class="form-control field-style" id="InputUsername" placeholder="Enter New Username">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control field-style" id="InputPassword" placeholder="Enter Old Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control field-style" id="InputPassword2" placeholder="Enter New Password">
+                            </div>
+                            <div class="form-group d-flex flex-column justify-content-center">
+                                <label for="InputAvatar">Upload File To Change Profile Avatar</label>
+                                <input type="file" id="fileInput" class="form-control__file btn btn-warning" id="InputAvatar">
+                                <div>
+                                    <button class="btn btn-warning my-5" id="fileSubmit">Upload File</button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="InputDescription">Change Your Description</label>
+                                <textarea class="editor field-style" name="comment" id="InputDescription"></textarea>
+                            </div>
+                            <button id="submit" type="submit" class="btn btn-warning btn-md">Change Your Information</button>
+                            <p class="err"></p>
+                            <!--  </form> -->
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
 
