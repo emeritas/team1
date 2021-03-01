@@ -38,12 +38,13 @@ submit.addEventListener('click', async (e)=> {
     let title = reviewTitle.value;
     let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.id;
     let content = reviewContent.value;
-
+    
     let data = {
         title,
         category,
         content
     }
+    
     try{
         const response = await fetch('http://localhost:3001/api/blog', {
         method:'POST',
@@ -59,5 +60,28 @@ submit.addEventListener('click', async (e)=> {
     }catch(e) {
         console.log(e)
     }
-    console.log(data)
+})
+
+document.getElementById('fileSubmit').addEventListener('click', async (e) => {
+    e.preventDefault()
+    if (document.getElementById('fileInput').files.length === 0) return
+    let file = document.getElementById('fileInput').files[0]
+
+    let formData = new FormData()
+    formData.append('test', file)
+    
+    try {
+        const response = await fetch('http://localhost:3001/api/uploads', {
+        method: 'POST',
+        headers: {
+            'blog-user-id': webtok
+        },
+        body: formData
+        })
+        if (response.status != 200) throw await response.json()
+        let user = await response.json()
+        document.getElementById('userAvatar').src = user.profileImageURL
+    } catch (e) {
+        console.log(e)
+    }
 })

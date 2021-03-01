@@ -3,16 +3,19 @@ const jwt = require('jsonwebtoken')
 const Blog = require('./blogModel')
 
 saveBlog = async (req, res) => {
-    let body = req.body
-
+    let body = req.body;
+    let file = req.body.file;
+    console.log(req.file)
     let blog = new Blog({
         content: body.content,
         title: body.title,
         category: body.category,
         author: req.user._id,
+        coverImageURL: `http://localhost:3001/uploads/${file}`
     })
 
     try {
+
         let savedBlog = await blog.save()
         res.json(savedBlog)
     } catch(e) {
@@ -51,13 +54,14 @@ removeBlog = async (req, res) => {
 
 addCoverImage = async (req, res) => {
     let file = req.file;
-    let blog = req.blog;
+    let user = req.user;
+    console.log(file)
     try {
-      blog.coverImageURL = `http://localhost:3001/uploads/${file.filename}`
-      await blog.save()
-      res.json(blog)
+        user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
+        await user.save()
+        res.json(user)
     } catch (e) {
-  
+        console.log(e)
     }
 }
 

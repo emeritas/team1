@@ -47,7 +47,7 @@ router.post('/category/delete/:id', CategoryController.deleteCategory)
 
 // Blog routes
 // išsaugoti blogo straipsnį
-router.post('/blog', UserMiddleware.authenticate, BlogControler.saveBlog);
+router.post('/blog', UserMiddleware.authenticate, upload.single('test'), BlogControler.saveBlog);
 // gauti visus straipsnius pagal userį
 router.get('/blog', UserMiddleware.authenticate,  BlogControler.getAllBlog)
 // ištrinti blogo straipsnį

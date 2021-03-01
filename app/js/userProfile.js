@@ -7,10 +7,10 @@ const inputEmail = document.getElementById('InputEmail');
 const InputDescription = document.getElementById('InputDescription');
 const fileUpload = document.getElementById('fileSubmit');
 //Headerio Atsijungimui
-const logout = document.getElementById('logout');
-const webtok = localStorage.getItem('blog-user-id');
+/* const logout = document.getElementById('logout'); */
+/* const webtok = localStorage.getItem('blog-user-id'); */
 
-userAvatar()
+/* userAvatar()
 async function userAvatar() {
     try{
     const response = await fetch('http://localhost:3001/api/currentUser', {
@@ -35,7 +35,7 @@ logout.addEventListener('click', async () =>{
 localStorage.removeItem('blog-user-id');
 localStorage.setItem('loggedIn', false);
 window.location.href = './index.html';
-})
+}) */
 
 document.getElementById('fileSubmit').addEventListener('click', async (e) => {
     e.preventDefault()
@@ -44,6 +44,7 @@ document.getElementById('fileSubmit').addEventListener('click', async (e) => {
 
     let formData = new FormData()
     formData.append('test', file)
+    
     try {
         const response = await fetch('http://localhost:3001/api/uploads', {
         method: 'POST',

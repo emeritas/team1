@@ -23,6 +23,10 @@ const blogItem = document.querySelector('.blogImage');
 const readBlogItem = document.getElementById('readBlog')
 const readBlogItems = document.querySelector('.readBlog')
 
+if(localStorage.getItem('loggedIn') === 'false' && window.location.href !== `${window.location.origin}/app/index.html`) {
+    window.location.href = '../app/index.html'
+}
+
 if(localStorage.getItem('loggedIn') === 'true') {
     body.classList.add('loggedIn');
     userAvatar();
@@ -58,78 +62,80 @@ localStorage.setItem('loggedIn', false);
 window.location.href = './index.html';
 })
 // Logino fetchas
-loginSubmit.addEventListener('click', async (e) =>{
-    e.preventDefault()
-    let username = usernameLogin.value
-    let password = passwordLogin.value
-    
-    if(!username || !password) {
-        loginErr.innerHTML = "Please fill in form fields with user information"
-        return false;
-    }
+if(localStorage.getItem('loggedIn') === `false`){
+    loginSubmit.addEventListener('click', async (e) =>{
+        e.preventDefault()
+        let username = usernameLogin.value
+        let password = passwordLogin.value
+        
+        if(!username || !password) {
+            loginErr.innerHTML = "Please fill in form fields with user information"
+            return false;
+        }
 
-    let data = {
-        username,
-        password
-    }
+        let data = {
+            username,
+            password
+        }
 
-    try{
-        const response = await fetch('http://localhost:3001/api/login', {
-        method:'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body:JSON.stringify(data)
+        try{
+            const response = await fetch('http://localhost:3001/api/login', {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        
+        if(response.status != 200) throw await response.json()
+        response.json()
+        let token = response.headers.get('blog-user-id')
+        localStorage.setItem('blog-user-id',token)
+        localStorage.setItem('loggedIn',true)
+        window.location.href = './index.html'
+        } catch(e) {
+        loginErr.innerHTML = e
+        }
     })
-    
-    if(response.status != 200) throw await response.json()
-    response.json()
-    let token = response.headers.get('blog-user-id')
-    localStorage.setItem('blog-user-id',token)
-    localStorage.setItem('loggedIn',true)
-    window.location.href = './index.html'
-    } catch(e) {
-       loginErr.innerHTML = e
-    }
-})
 
-// Register fetchas
-registerSubmit.addEventListener('click', async (e) =>{
-    e.preventDefault();
+    // Register fetchas
+    registerSubmit.addEventListener('click', async (e) =>{
+        e.preventDefault();
 
-    let username = usernameRegister.value
-    let password = passwordRegister.value
-    let email = emailRegister.value
-    if(!username || !password || !email) {
-        registerErr.innerHTML = "Please fill in ALL form fields with user information"
-        return false;
-    }
-    let data = {
-        username,
-        password,
-        email
-    }
+        let username = usernameRegister.value
+        let password = passwordRegister.value
+        let email = emailRegister.value
+        if(!username || !password || !email) {
+            registerErr.innerHTML = "Please fill in ALL form fields with user information"
+            return false;
+        }
+        let data = {
+            username,
+            password,
+            email
+        }
 
-    try{
-        const response = await fetch('http://localhost:3001/api/signup', {
-        method:'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body:JSON.stringify(data)
+        try{
+            const response = await fetch('http://localhost:3001/api/signup', {
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        if(response.status != 200) throw await response.json()
+        response.json()
+        window.location.href = './index.html'
+        } catch(e) {
+            if(e.keyValue.username) registerErr.innerHTML = `Username already exists.`
+            if(e.keyValue.email) registerErr.innerHTML = `Email already exists.`
+        }
     })
-    if(response.status != 200) throw await response.json()
-    response.json()
-    window.location.href = './index.html'
-    } catch(e) {
-        if(e.keyValue.username) registerErr.innerHTML = `Username already exists.`
-        if(e.keyValue.email) registerErr.innerHTML = `Email already exists.`
-    }
-})
+}
 
 
 // Nukreipimas i puslapius
-viewMyProfile.addEventListener('click', ()=> {
+/* viewMyProfile.addEventListener('click', ()=> {
     window.location.href = './pages/viewMyProfile.html'
 })
 
@@ -150,7 +156,7 @@ blogItem.addEventListener('mouseenter', () => {
 blogItem.addEventListener('mouseleave', () => {
     let blogInfo = document.querySelector('.blogInfo');
     blogInfo.style.display="none"
-})
+}) */
 
 
 
