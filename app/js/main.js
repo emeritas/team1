@@ -87,6 +87,7 @@ loginSubmit.addEventListener('click', async (e) =>{
     let token = response.headers.get('blog-user-id')
     localStorage.setItem('blog-user-id',token)
     localStorage.setItem('loggedIn',true)
+    localStorage.setItem('blog-username', JSON.stringify(username));
     window.location.href = './index.html'
     } catch(e) {
        loginErr.innerHTML = e
