@@ -20,8 +20,7 @@ const viewMyProfile = document.getElementById('viewMyProfile');
 
 // BLOGO BOXAI
 const blogItem = document.querySelector('.blogImage');
-const readBlogItem = document.getElementById('readBlog')
-const readBlogItems = document.querySelector('.readBlog')
+
 
 if(localStorage.getItem('loggedIn') === 'true') {
     body.classList.add('loggedIn');
@@ -126,20 +125,6 @@ registerSubmit.addEventListener('click', async (e) =>{
         if(e.keyValue.username) registerErr.innerHTML = `Username already exists.`
         if(e.keyValue.email) registerErr.innerHTML = `Email already exists.`
     }
-})
-
-
-// Nukreipimas i puslapius
-viewMyProfile.addEventListener('click', ()=> {
-    window.location.href = './pages/viewMyProfile.html'
-})
-
-readBlogItem.addEventListener('click', () => {
-    window.location.href = './pages/readBlog.html'
-})
-
-readBlogItems.addEventListener('click', () => {
-    window.location.href = './pages/readBlog.html'
 })
 
 
