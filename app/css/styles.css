@@ -39,6 +39,9 @@ h1 {
 .loggedIn .avatar {
   display: block; }
 
+.sign-in-triggers .signup-button:first-child {
+  margin-right: 5px; }
+
 .navbar-dark .navbar-nav .nav-link {
   color: #fff; }
 
