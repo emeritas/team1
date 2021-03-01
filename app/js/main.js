@@ -129,14 +129,14 @@ registerSubmit.addEventListener('click', async (e) =>{
 
 
 // Blogo info atsiradimas
-blogItem.addEventListener('mouseenter', () => {
+/* blogItem.addEventListener('mouseenter', () => {
     let blogInfo = document.querySelector('.blogInfo');
     blogInfo.style.display="flex"
 })
 blogItem.addEventListener('mouseleave', () => {
     let blogInfo = document.querySelector('.blogInfo');
     blogInfo.style.display="none"
-})
+}) */
 
 
 
