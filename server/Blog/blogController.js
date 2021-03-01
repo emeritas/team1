@@ -1,4 +1,5 @@
 const { request } = require('express');
+const jwt = require('jsonwebtoken')
 const Blog = require('./blogModel')
 
 saveBlog = async (req, res) => {
@@ -52,7 +53,7 @@ addCoverImage = async (req, res) => {
     let file = req.file;
     let blog = req.blog;
     try {
-      blog.coverImageURL = file.path
+      blog.coverImageURL = `http://localhost:3001/uploads/${file.filename}`
       await blog.save()
       res.json(blog)
     } catch (e) {

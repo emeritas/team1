@@ -42,10 +42,8 @@ document.getElementById('fileSubmit').addEventListener('click', async (e) => {
     if (document.getElementById('fileInput').files.length === 0) return
     let file = document.getElementById('fileInput').files[0]
 
-    console.log(document.getElementById('fileInput').files[0])
     let formData = new FormData()
     formData.append('test', file)
-    console.log(formData)
     try {
         const response = await fetch('http://localhost:3001/api/uploads', {
         method: 'POST',
@@ -56,7 +54,6 @@ document.getElementById('fileSubmit').addEventListener('click', async (e) => {
         })
         if (response.status != 200) throw await response.json()
         let user = await response.json()
-        console.log('asd')
         document.getElementById('userAvatar').src = user.profileImageURL
     } catch (e) {
         console.log(e)
