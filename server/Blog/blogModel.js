@@ -18,8 +18,9 @@ let BlogSchema = new mongoose.Schema({
         type: Date
     },
     category: {
-        type: String,
-        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        require: true, 
+        ref: 'Category'
     },
     coverImageURL: {
         type: String
