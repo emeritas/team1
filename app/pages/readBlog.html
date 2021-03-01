@@ -4,60 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project</title>
+    <title>Read blog</title>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="../css/readBlog.css">
     
     <!-- JS -->
-    <script defer src="./js/main.js"></script>
+    <script defer src="../js/readBlog.js"></script>
 
 </head>
 <body>
     <header>
         <div class="container__header">
             <div class="logo">LOGO</div>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                      <a class="nav-link" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Read By Genre
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                        </div>
-                      </li>
-                  </ul>
-                </div>
+            <nav class="navigation">
+                <ul class="navigation__list"> 
+                    <li><a href="../index.html"></a>Home</li>
+                    <li><a href="#"></a>About us</li>
+                    <li><a href="#"></a>Contact us</li>
+                    <li>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img id="userAvatar" class="user-avatar" src="" alt="">
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Edit User Settings</a>
+                            <a class="dropdown-item" href="#">Create A New Review</a>
+                            <a class="dropdown-item" href="./userProfile.html">View My Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a id="logout" class="dropdown-item" href="#">Logout</a>
+                          </div>
+                    </li> 
+                </ul>
             </nav>
-            <ul class="sign-in-triggers">
-                <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalRegisterForm" id="signup">Signup</button></li>
-                <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalLoginForm" id="login">Login</button></li>
-                <li id="loggedIn" class="avatar">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img id="userAvatar" class="user-avatar" src="https://images.unsplash.com/photo-1614114531011-26afb982f0ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="">
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="./userProfile.html">Edit User Settings</a>
-                        <a class="dropdown-item" href="./add-review.html">Create A New Review</a>
-                        <a id="viewMyProfile" class="dropdown-item" href="#">View My Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a id="logout" class="dropdown-item" href="#">Logout</a>
-                      </div>
-                </li>
-            </ul>
         </div>
         <div id="ModalRegisterForm" class="modal fade">
             <div class="modal-dialog" role="document">
@@ -130,68 +111,32 @@
                 </div>
             </div>
     </header>
-    
+
     <main>
-        <div class="wrapper">
-            <div class="container">
-                <section class="oneUser">
-                    <div class="oneUserblogItem">
-                        <div class="oneUserblogItem__image">
-                        </div>
-                        <div class="oneUserblogItem__info">
-                            <h3>Blog Title</h3>
-                            <h4>Blog Author</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim vitae, sunt quidem sed, omnis totam velit repellendus numquam, deserunt nulla eaque labore ex odit laboriosam ut asperiores explicabo autem ea!</p>
-                            <button id="readBlog">Read here</button>
-                        </div>
+        <div class="container-sm">
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="profilePicture"></div>
+                <div class="userDescription">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit
+                </div>
+              </div>
+              <div class="col-sm-8">
+                    <h2>Blog author</h2>
+                    <div class="blogItem">
+                        <h4>
+                            Blog title
+                        </h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis commodi aut quisquam, fuga maxime deleniti hic quia eos ducimus veritatis doloribus iure facere libero fugit illo assumenda odio est amet?
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Soluta illum similique quod, commodi itaque modi consectetur ratione ut sequi saepe ea distinctio temporibus ipsam iure, cumque voluptates deleniti autem repellat! <br>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eaque quo porro iure temporibus odio, autem corporis corrupti quae doloremque quisquam labore eligendi assumenda. Quia maxime quo eaque obcaecati, maiores recusandae!
+                        </p>
                     </div>
-
-                </section>
-                <section class="users">
-                    <h2>Most recent reviews</h2>
-                    <div class="usersBlogItems">
-                        <div class="blogItem">
-                            <div class="blogImage">
-                                <div class="blogInfo">
-                                    <h3>Blog Title</h3>
-                                    <h4>Blog Author</h4>
-                                    <button class="readBlog">Read here</button>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blogItem">
-                            <div class="blogImage">
-                                <div class="blogInfo">
-                                    <h3>Blog Title</h3>
-                                    <h4>Blog Author</h4>
-                                    <button class="readBlog">Read here</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blogItem">
-                            <div class="blogImage">
-                                <div class="blogInfo">
-                                    <h3>Blog Title</h3>
-                                    <h4>Blog Author</h4>
-                                    <button class="readBlog">Read here</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blogItem">
-                            <div class="blogImage">
-                                <div class="blogInfo">
-                                    <h3>Blog Title</h3>
-                                    <h4>Blog Author</h4>
-                                    <button class="readBlog">Read here</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+              </div>
             </div>
         </div>
     </main>
+
     <footer>
         <p>&copy; All rights reserved | <span id="current-year"></span></p>
         <ul class="navigation__list"> 
@@ -199,6 +144,7 @@
             <li><a href="#"></a>Contact us</li>
         </ul>
     </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
