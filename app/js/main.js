@@ -17,7 +17,7 @@ const webtok = localStorage.getItem('blog-user-id');
 const loggedIn = document.querySelector('.loggedIn')
 const body = document.querySelector('body')
 const viewMyProfile = document.getElementById('viewMyProfile');
-const output = document.getElementById('output')
+const output = document.getElementById('output');
 // BLOGO BOXAI
 const blogItem = document.querySelector('.blogImage');
 
@@ -155,9 +155,9 @@ async function getAllPostsAndPopulateUI() {
                 <div class="oneUserblogItem__info">
                     <h3>${element.title}</h3>
                     <h4>${element.author}</h4>
-                    <p class="blogItem__description">${element.content}</p>
+                    <p id='desc${i}' class="blogItem__description">${element.content}</p>
                     <div class="collapse" id="collapseExample${i}">
-                        <div class="card card-body card--dark">
+                        <div class="">
                             <p>${element.content}</p>
                         </div>
                     </div>
@@ -168,9 +168,27 @@ async function getAllPostsAndPopulateUI() {
         `
         i = i + 1;
     });
+    readMoreCollapse
     }catch(e) {
         console.log(e)
     }
+}
+
+function readMoreCollapse() {
+    const readMoreBtns = document.querySelectorAll('.read-more');
+    const collapsibles = document.querySelectorAll('.collapse');
+
+    readMoreBtns.forEach(element,index => {
+        let desc = document.getElementById(`desc${index}`).innerHTML = ``;
+        element.addEventListener('click', () => {
+            console.log(element.previousSibling.previousSibling)
+            collapsibles.forEach(collapsible => {
+                console.log(collapsible)
+               collapsible.classList.remove('show') 
+            })
+            element.previousSibling.previousSibling.classList.remove('show') 
+        })
+    })
 }
 
 
