@@ -59,11 +59,7 @@ logout.addEventListener('click', async () =>{
 }).then(res => res.json()).then(data => console.log(data))
 localStorage.removeItem('blog-user-id');
 localStorage.setItem('loggedIn', false);
-if(window.location.href == `${window.location.origin}/app/pages/view-my-profile.html`) {
-    window.location.href = '../index.html'
-}else{
-    window.location.href = './index.html';
-}
+window.location.href = '/app/index.html';
 })
 // Logino fetchas
 if(localStorage.getItem('loggedIn') === `false`){
