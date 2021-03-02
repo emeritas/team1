@@ -62,7 +62,7 @@ localStorage.setItem('loggedIn', false);
 if(window.location.href == `${window.location.origin}/app/pages/view-my-profile.html`) {
     window.location.href = '../index.html'
 }else{
-window.location.href = './index.html';
+    window.location.href = './index.html';
 }
 })
 // Logino fetchas
