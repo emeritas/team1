@@ -55,6 +55,9 @@ header {
     border-radius: 50%; }
   header a {
     color: #ffc107; }
+    header a:hover {
+      color: #fff;
+      text-decoration: none; }
   header .container__header {
     margin: auto;
     width: 100%;
@@ -121,6 +124,19 @@ header {
   background-color: #ffc107;
   border: 1px solid transparent;
   box-shadow: none; }
+
+.filter-wrapper {
+  margin-bottom: 25px; }
+
+.filter__single-item {
+  padding: 3px 20px 5px 20px;
+  border-radius: 20px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #111114; }
+
+.filter__single-item.current, .filter__single-item:hover {
+  color: #ffc107; }
 
 .oneUserblogItem {
   height: auto; }

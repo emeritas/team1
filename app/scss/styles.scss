@@ -91,6 +91,10 @@ header {
   }
   a {
     color: #ffc107;
+    &:hover{
+      color:#fff;
+      text-decoration: none;
+    }
   }
   .container__header {
     margin: auto;
@@ -190,6 +194,24 @@ header {
   background-color: #ffc107;
   border: 1px solid transparent;
   box-shadow: none;
+}
+
+// Filter
+.filter-wrapper{
+  margin-bottom:25px;
+}
+.filter__single-item{
+  padding: 3px 20px 5px 20px;
+  border-radius: 20px;
+  margin:0 5px;
+  cursor: pointer;
+  background-color:#111114;
+}
+
+.filter__single-item{
+  &.current, &:hover{
+    color:$primary-color;
+  }
 }
 
 // Main
