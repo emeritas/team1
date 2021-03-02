@@ -17,20 +17,21 @@ const webtok = localStorage.getItem('blog-user-id');
 const loggedIn = document.querySelector('.loggedIn')
 const body = document.querySelector('body')
 const viewMyProfile = document.getElementById('viewMyProfile');
-
+const output = document.getElementById('output')
 // BLOGO BOXAI
 const blogItem = document.querySelector('.blogImage');
 
-
+// REDIRECTINIMAS JEIGU USERIS NEPRISIJUNGES
 if(localStorage.getItem('loggedIn') === 'false' && window.location.href !== `${window.location.origin}/app/index.html`) {
     window.location.href = '../app/index.html'
 }
-
+// JEIGU USERIS PRISIJUNGES UZDEDAMOS KNOPKES IR TT
 if(localStorage.getItem('loggedIn') === 'true') {
     body.classList.add('loggedIn');
     userAvatar();
 }
 
+getAllPostsAndPopulateUI()
 
 if(loggedIn) userAvatar()
 async function userAvatar() {
@@ -46,8 +47,7 @@ async function userAvatar() {
     }    
 }
 
-console.log(window.location.href)
-console.log(`${window.location.origin}/app/pages/view-my-profile.html`)
+
 
 logout.addEventListener('click', async () =>{
     const response = await fetch('http://localhost:3001/api/logout', {
@@ -61,6 +61,7 @@ localStorage.removeItem('blog-user-id');
 localStorage.setItem('loggedIn', false);
 window.location.href = '/app/index.html';
 })
+
 // Logino fetchas
 if(localStorage.getItem('loggedIn') === `false`){
     loginSubmit.addEventListener('click', async (e) =>{
@@ -97,20 +98,6 @@ if(localStorage.getItem('loggedIn') === `false`){
         loginErr.innerHTML = e
         }
     })
-    
-  /*   if(response.status != 200) throw await response.json()
-    response.json()
-    let token = response.headers.get('blog-user-id')
-    localStorage.setItem('blog-user-id',token)
-    localStorage.setItem('loggedIn',true)
-    localStorage.setItem('blog-username', JSON.stringify(username));
-    window.location.href = './index.html'
-    } catch(e) {
-       loginErr.innerHTML = e
-    }
-}) */
-
-    // Register fetchas
     registerSubmit.addEventListener('click', async (e) =>{
         e.preventDefault();
 
@@ -145,16 +132,46 @@ if(localStorage.getItem('loggedIn') === `false`){
     })
 }
 
-
-// Blogo info atsiradimas
-/* blogItem.addEventListener('mouseenter', () => {
-    let blogInfo = document.querySelector('.blogInfo');
-    blogInfo.style.display="flex"
-})
-blogItem.addEventListener('mouseleave', () => {
-    let blogInfo = document.querySelector('.blogInfo');
-    blogInfo.style.display="none"
-}) */
+// FETCHINAMI VISI POSTAI
+async function getAllPostsAndPopulateUI() {
+    let i = 0;
+    try{
+        const response = await fetch('http://localhost:3001/api/getAllBlogs', {
+        method:'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    if(response.status != 200) throw await response.json()
+    let allItems = await response.json()
+    console.log(allItems)
+    allItems.forEach(element => {
+        output.innerHTML += `
+        <div class="col-md-6 col-sm-12">
+            <div class="oneUserblogItem card card--dark mb-3">
+                <div class="oneUserblogItem__image">
+                    <img src="${element.coverImageURL}" alt="">
+                </div>
+                <div class="oneUserblogItem__info">
+                    <h3>${element.title}</h3>
+                    <h4>${element.author}</h4>
+                    <p class="blogItem__description">${element.content}</p>
+                    <div class="collapse" id="collapseExample${i}">
+                        <div class="card card-body card--dark">
+                            <p>${element.content}</p>
+                        </div>
+                    </div>
+                    <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
+                </div>
+            </div>
+        </div>
+        `
+        i = i + 1;
+    });
+    }catch(e) {
+        console.log(e)
+    }
+}
 
 
 

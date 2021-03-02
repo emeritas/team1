@@ -34,6 +34,19 @@ getAllBlog = (req, res) => {
     })
 }
 
+getActuallyAllBlogs = (req,res) => {
+    Blog.find({}, (items,err) => {
+        if(err) return res.json(err)
+        res.json(items)
+    })
+}
+
+deleteAllBlogs = (req,res) => {
+    Blog.remove({}, (items,err) => {
+        if(err) return res.json(err)
+        res.json(items)
+    })
+}
 
 updateBlog = async(req,res) => {
     try {
@@ -72,5 +85,7 @@ module.exports = {
     getAllBlog,
     removeBlog,
     addCoverImage,
-    updateBlog
+    updateBlog,
+    getActuallyAllBlogs,
+    deleteAllBlogs
 }

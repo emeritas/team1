@@ -56,7 +56,8 @@ router.delete('/blog/:_id', UserMiddleware.authenticate, BlogControler.removeBlo
 router.post('/blog/uploads', UserMiddleware.authenticate, upload.single('test'), BlogControler.addCoverImage)
 // atnaujinti blogo įrašą
 router.patch('/blog/:id', UserMiddleware.authenticate, BlogControler.updateBlog)
-
-
+// gauti visus blogo irasus
+router.get('/getAllBlogs', BlogControler.getActuallyAllBlogs)
+router.delete('/blogKillAll', BlogControler.deleteAllBlogs)
 
 module.exports = router
