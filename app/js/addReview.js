@@ -1,5 +1,5 @@
 // Formos pateikimui
-const submit = document.getElementById('submit-review');
+const submit = document.querySelector('#submit-review');
 const reviewTitle = document.getElementById('review-title');
 const reviewCategory = document.getElementById('category');
 const reviewContent = document.getElementById('review-content');
@@ -45,7 +45,7 @@ submit.addEventListener('click', async (e)=> {
     formData.append('title', title)
     formData.append('category', category)
     formData.append('content', content)
-
+    /* formData.append('author', ) */
 
     try{
         const response = await fetch('http://localhost:3001/api/blog', {
@@ -64,7 +64,8 @@ submit.addEventListener('click', async (e)=> {
         body: formData
         }) */
     if(response.status != 200) throw await response.json()
-    console.log(response.json())
+    let blog = await response.json()
+    console.log(blog)
     }catch(e) {
         console.log(e)
     }

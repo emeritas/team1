@@ -5,14 +5,14 @@ const Blog = require('./blogModel')
 saveBlog = async (req, res) => {
     let body = req.body;
     let file = req.file;
-
-    console.log(file)
-    console.log(body)
+    console.log(req.user)
+    /* console.log(body)
+    console.log(req.user) */
     let blog = new Blog({
         content: body.content,
         title: body.title,
         category: body.category,
-        author: req.user._id,
+        author: req.user.username,
         publishDate: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`
     })
   
@@ -27,7 +27,7 @@ saveBlog = async (req, res) => {
 
 getAllBlog = (req, res) => {
     Blog.find({
-        author: req.user._id
+        author: req.user.username
     }, (items, error) => { 
         if (error) return res.json(error)
         res.json(items)

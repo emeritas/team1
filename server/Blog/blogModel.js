@@ -25,7 +25,7 @@ let BlogSchema = new mongoose.Schema({
         type: String
     },
     author: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         require: true, 
         ref: 'User'
     },
