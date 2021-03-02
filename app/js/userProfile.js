@@ -8,7 +8,7 @@ const InputDescription = document.getElementById('InputDescription');
 const fileUpload = document.getElementById('fileSubmit');
 //Headerio Atsijungimui
 
-const webtok = localStorage.getItem('blog-user-id');
+const webtok1 = localStorage.getItem('blog-user-id');
 
 
 
@@ -24,7 +24,7 @@ document.getElementById('fileSubmit').addEventListener('click', async (e) => {
         const response = await fetch('http://localhost:3001/api/uploads', {
         method: 'POST',
         headers: {
-            'blog-user-id': webtok
+            'blog-user-id': webtok1
         },
         body: formData
         })
@@ -56,7 +56,7 @@ submit.addEventListener('click', async (e)=> {
         method:'POST',
         headers: {
             'Content-Type': 'application/json',
-            'blog-user-id': webtok
+            'blog-user-id': webtok1
         },
         body:JSON.stringify(data)
     })

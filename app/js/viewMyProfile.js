@@ -1,5 +1,7 @@
 const blogAuthor = document.getElementById("author-name");
 const blog = document.getElementById("blog");
+const profilePic = document.getElementById('user-image');
+const userDescription = document.getElementById('author-description')
 let url = 'http://localhost:3001/api/';
 
 
@@ -45,6 +47,21 @@ displayAllItems = (items) => {
 
 
 setUserName = async () => {
+    try {
+        const response = await fetch(url+'currentUser', {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "blog-user-id": token
+            }
+        })
+        if(response.status != 200) throw await response.json();
+        let user = await response.json();
+        profilePic.src = `${user.profileImageURL}`
+        userDescription.innerText = `${user.description}`
+    } catch(e) {
+        console.log(e)
+    }
     blogAuthor.innerText = JSON.parse(localStorage.getItem("blog-username"));
 }
 
