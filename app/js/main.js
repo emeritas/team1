@@ -20,8 +20,7 @@ const viewMyProfile = document.getElementById('viewMyProfile');
 
 // BLOGO BOXAI
 const blogItem = document.querySelector('.blogImage');
-const readBlogItem = document.getElementById('readBlog')
-const readBlogItems = document.querySelector('.readBlog')
+
 
 if(localStorage.getItem('loggedIn') === 'false' && window.location.href !== `${window.location.origin}/app/index.html`) {
     window.location.href = '../app/index.html'
@@ -97,6 +96,18 @@ if(localStorage.getItem('loggedIn') === `false`){
         loginErr.innerHTML = e
         }
     })
+    
+  /*   if(response.status != 200) throw await response.json()
+    response.json()
+    let token = response.headers.get('blog-user-id')
+    localStorage.setItem('blog-user-id',token)
+    localStorage.setItem('loggedIn',true)
+    localStorage.setItem('blog-username', JSON.stringify(username));
+    window.location.href = './index.html'
+    } catch(e) {
+       loginErr.innerHTML = e
+    }
+}) */
 
     // Register fetchas
     registerSubmit.addEventListener('click', async (e) =>{
@@ -134,22 +145,8 @@ if(localStorage.getItem('loggedIn') === `false`){
 }
 
 
-// Nukreipimas i puslapius
-/* viewMyProfile.addEventListener('click', ()=> {
-    window.location.href = './pages/viewMyProfile.html'
-})
-
-readBlogItem.addEventListener('click', () => {
-    window.location.href = './pages/readBlog.html'
-})
-
-readBlogItems.addEventListener('click', () => {
-    window.location.href = './pages/readBlog.html'
-})
-
-
 // Blogo info atsiradimas
-blogItem.addEventListener('mouseenter', () => {
+/* blogItem.addEventListener('mouseenter', () => {
     let blogInfo = document.querySelector('.blogInfo');
     blogInfo.style.display="flex"
 })

@@ -18,8 +18,10 @@
 </head>
 <body>
     <header>
-        <div class="container__header">
-            <div class="logo">LOGO</div>
+        <div class="container d-flex justify-content-between">
+            <div class="logo d-flex align-items-center">
+                <a aria-label="brand-name" class="brand-name" href="/app/index.html">Postal</a>
+            </div>
             <nav class="navbar navbar-expand-lg navbar-dark bg-black">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -27,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                   <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                      <a class="nav-link" href="./index.html">Home</a>
+                      <a class="nav-link" href="/app/index.html">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -42,7 +44,7 @@
                   </ul>
                 </div>
             </nav>
-            <ul class="sign-in-triggers">
+            <ul class="sign-in-triggers d-flex align-items-center">
                 <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalRegisterForm" id="signup">Signup</button></li>
                 <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalLoginForm" id="login">Login</button></li>
                 <li id="loggedIn" class="avatar">
@@ -131,66 +133,68 @@
             </div>
     </header>
     
-    <main>
-        <div class="wrapper">
+    <main class="main-bg">
+        <section>
             <div class="container">
-                <section class="oneUser">
-                    <div class="oneUserblogItem">
-                        <div class="oneUserblogItem__image">
-                        </div>
-                        <div class="oneUserblogItem__info">
-                            <h3>Blog Title</h3>
-                            <h4>Blog Author</h4>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim vitae, sunt quidem sed, omnis totam velit repellendus numquam, deserunt nulla eaque labore ex odit laboriosam ut asperiores explicabo autem ea!</p>
-                            <button id="readBlog">Read here</button>
-                        </div>
+                <h1 class="main-title mb-4">Yours Movies Reviews and Ratings – Updated for March, 2021</h1>
+                <div class="oneUserblogItem card card--dark">
+                    <div class="oneUserblogItem__image">
                     </div>
-
-                </section>
-                <section class="users">
-                    <h2>Most recent reviews</h2>
-                    <div class="usersBlogItems">
-                        <div class="blogItem">
-                            <div class="blogImage">
-                                <div class="blogInfo">
-                                    <h3>Blog Title</h3>
-                                    <h4>Blog Author</h4>
-                                    <button class="readBlog">Read here</button>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blogItem">
-                            <div class="blogImage">
-                                <div class="blogInfo">
-                                    <h3>Blog Title</h3>
-                                    <h4>Blog Author</h4>
-                                    <button class="readBlog">Read here</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blogItem">
-                            <div class="blogImage">
-                                <div class="blogInfo">
-                                    <h3>Blog Title</h3>
-                                    <h4>Blog Author</h4>
-                                    <button class="readBlog">Read here</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="blogItem">
-                            <div class="blogImage">
-                                <div class="blogInfo">
-                                    <h3>Blog Title</h3>
-                                    <h4>Blog Author</h4>
-                                    <button class="readBlog">Read here</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="oneUserblogItem__info">
+                        <h3>Blog Title</h3>
+                        <h4>Blog Author</h4>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim vitae, sunt quidem sed, omnis totam velit repellendus numquam, deserunt nulla eaque labore ex odit laboriosam ut asperiores explicabo autem ea...</p>
+                        <button class="read-more btn btn-warning">Read More</button>
                     </div>
-                </section>
+                </div>
             </div>
-        </div>
+        </section>
+
+
+        <section class="users">
+            <div class="container">
+                <h2>Most recent reviews</h2>
+                <div class="usersBlogItems">
+                    <div class="blogItem">
+                        <div class="blogImage">
+                            <div class="blogInfo">
+                                <h3>Blog Title</h3>
+                                <h4>Blog Author</h4>
+                                <button class="readBlog">Read here</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blogItem">
+                        <div class="blogImage">
+                            <div class="blogInfo">
+                                <h3>Blog Title</h3>
+                                <h4>Blog Author</h4>
+                                <button class="readBlog">Read here</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blogItem">
+                        <div class="blogImage">
+                            <div class="blogInfo">
+                                <h3>Blog Title</h3>
+                                <h4>Blog Author</h4>
+                                <button class="readBlog">Read here</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blogItem">
+                        <div class="blogImage">
+                            <div class="blogInfo">
+                                <h3>Blog Title</h3>
+                                <h4>Blog Author</h4>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
     <footer>
         <p>&copy; All rights reserved | <span id="current-year"></span></p>
