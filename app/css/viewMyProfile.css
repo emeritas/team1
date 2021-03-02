@@ -127,13 +127,13 @@ main {
         flex-direction: column;
         justify-content: center;
         align-content: center; }
-        main .container-sm .row .col-sm-8 .blogItem {
+        main .container-sm .row .col-sm-8 .blog__item {
           margin: 50px 30px; }
-          main .container-sm .row .col-sm-8 .blogItem h4 {
+          main .container-sm .row .col-sm-8 .blog__item h4 {
             margin-bottom: 20px;
             color: #ffc107;
             text-transform: uppercase; }
-          main .container-sm .row .col-sm-8 .blogItem p {
+          main .container-sm .row .col-sm-8 .blog__item p {
             color: #fff; }
 
 footer {

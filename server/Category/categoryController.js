@@ -40,9 +40,19 @@ const deleteCategory = async (req, res) => {
     }
 }
 
+const getCategoryTitle = async (req, res) => {
+	try {
+		let categoriesTitle = await Category.findOne({ _id: req.params.id });
+		res.json(categoriesTitle);
+	} catch (err) {
+		res.status(400).json(err);
+	}
+};
+
 module.exports = {
 	addCategory,
 	getAll,
 	updateCategory,
-	deleteCategory
+	deleteCategory,
+	getCategoryTitle
 };

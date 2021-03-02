@@ -35,7 +35,7 @@ getAllBlog = (req, res) => {
 
 updateBlog = async(req,res) => {
     try {
-        let updated = await Blog.findOneAndUpdate(req.params.id, req.body)
+        let updated = await Blog.findOneAndUpdate({ _id: req.params.id }, req.body)
         res.json(updated)
     } catch (e) {
         res.status(400).json(e)
@@ -45,7 +45,7 @@ updateBlog = async(req,res) => {
 
 removeBlog = async (req, res) => {
     try {
-        await Blog.findOneAndRemove(req.params.id, req.body)
+        await Blog.findOneAndRemove({ _id: req.params.id })
         res.json('success')
     } catch (e) {
         res.status(400).json(e)
