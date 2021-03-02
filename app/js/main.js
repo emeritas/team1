@@ -18,8 +18,6 @@ const loggedIn = document.querySelector('.loggedIn')
 const body = document.querySelector('body')
 const viewMyProfile = document.getElementById('viewMyProfile');
 const output = document.getElementById('output')
-const filter = document.getElementById('filter');
-const filterButtons = document.querySelectorAll('.filter__single-item');
 
 // BLOGO BOXAI
 const blogItem = document.querySelector('.blogImage');
@@ -175,40 +173,6 @@ async function getAllPostsAndPopulateUI() {
         console.log(e)
     }
 }
-// Get categories for filter
-const getCategories = async () => {
-    try{
-    const response = await fetch('http://localhost:3001/api/category/get', {
-        method: "GET",
-        headers:{"blog-user-id": webtok}
-        })
-        let categories = await response.json();
-        let i = 0;
-        let listItem = document.createElement("li");
-        listItem.innerText = "All";
-        listItem.dataset.name = "All";
-        listItem.classList = "filter__single-item current";
-        filter.append(listItem)
-        categories.forEach(category => {
-            i++;
-            if(i > 0){
-                listItem = document.createElement("li");
-                listItem.classList = "filter__single-item";
-                listItem.innerText = category.title;
-                listItem.dataset.name = category.title;
-            }
-            filter.append(listItem)
-            
-        })
-    }catch(e){
-        console.log(e)
-    }    
-}
-getCategories()
-
-// -- filtering categories
-// filterButtons.forEach(button =>)
-
 
 
 
