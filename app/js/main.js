@@ -151,10 +151,10 @@ if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('logged
                     <div class="oneUserblogItem__info">
                         <h3>${currentItem.title}</h3>
                         <p>Author: ${currentItem.author}</p>
-                    <div class="read-more-block">
-                        <p class="blogItem__description animated fadeIn">${currentItem.content}</p>
-                    </div>
-                    <button class="read-more-btn btn btn-warning"><span class="more-btn">Read Review</span><span class="less-btn">Read Less</span></button>
+                        <div class="read-more-block">
+                            <p class="blogItem__description animated fadeIn">${currentItem.content}</p>
+                        </div>
+                        <button class="read-more-btn btn btn-warning"><span class="more-btn">Read Review</span><span class="less-btn">Read Less</span></button>
                     </div>
                 </div>
             </div>

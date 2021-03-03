@@ -55,19 +55,17 @@ const getCategories = async () => {
                             </div>
                             <div class="oneUserblogItem__info">
                                 <h3>${blog.title}</h3>
-                                <h4>${blog.author}</h4>
-                                <p id='desc${i}' class="blogItem__description">${blog.content}</p>
-                                <div class="collapse" id="collapseExample${i}">
-                                    <div id='collapsible-item${i}' class="collapse-item">
-                                        <p id='collapse-item${i}'>${blog.content}</p>
-                                    </div>
+                                <p>Author: ${blog.author}</p>
+                                <div class="read-more-block">
+                                    <p class="blogItem__description animated fadeIn">${blog.content}</p>
                                 </div>
-                                <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
+                                <button class="read-more-btn btn btn-warning"><span class="more-btn">Read Review</span><span class="less-btn">Read Less</span></button>
                             </div>
                         </div>
                     </div>
                     `
                 })
+                readMoreCollapse()
                 }catch(e){
                     console.log(e)
                 }
@@ -96,28 +94,51 @@ const getCategories = async () => {
                             </div>
                             <div class="oneUserblogItem__info">
                                 <h3>${blog.title}</h3>
-                                <h4>${blog.author}</h4>
-                                <p id='desc${i}' class="blogItem__description">${blog.content}</p>
-                                <div class="collapse" id="collapseExample${i}">
-                                    <div id='collapsible-item${i}' class="collapse-item">
-                                        <p id='collapse-item${i}'>${blog.content}</p>
-                                    </div>
+                                <p>Author: ${blog.author}</p>
+                                <div class="read-more-block">
+                                    <p class="blogItem__description animated fadeIn">${blog.content}</p>
                                 </div>
-                                <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
+                                <button class="read-more-btn btn btn-warning"><span class="more-btn">Read Review</span><span class="less-btn">Read Less</span></button>
                             </div>
                         </div>
                     </div>
                     `
                 })
+                readMoreCollapse()
             }catch(e){
                 console.log(e)
             }    
         })})
+        readMoreCollapse()
     }catch(e){
         console.log(e)
     }    
 }
 getCategories()
+
+// READ MORE
+function readMoreCollapse() {
+    
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+    readMoreBtns.forEach((btn,index) => {
+        btn.addEventListener('click', (e) => {
+            let element = e.target;
+            let parent = element.parentElement;
+
+            if(parent.classList.contains('show')){
+                parent.classList.remove('show');
+            }else{
+                let allParentElements = document.querySelectorAll('.oneUserblogItem__info');
+                allParentElements.forEach(elem => {
+                    if(elem.classList.contains('show')){
+                        elem.classList.remove('show');
+                    }
+                })
+                parent.classList.add('show');
+            }
+        })
+    })
+}
 
 
 
