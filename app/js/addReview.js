@@ -72,7 +72,7 @@ submit.addEventListener('click', async (e)=> {
     })
     if(response.status != 200) throw await response.json()
     let blog = await response.json()
-    console.log(blog)
+    
     }catch(e) {
         document.getElementById('sub-err').innerHTML = e
     }

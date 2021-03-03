@@ -6,11 +6,6 @@ const routes = require('./routes/routes');
 var bodyParser = require('body-parser');
 var cors = require('cors')
 
-/* mongoose.connection.on('error', function(err) {
-	console.log(err)
-}); */
-
-
 mongoose.connect('mongodb://localhost/reviews-db', {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,

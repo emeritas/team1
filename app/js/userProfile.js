@@ -43,7 +43,7 @@ submit.addEventListener('click', async (e)=> {
     })
     if(response.status != 200) throw await response.json()
     let user = await response.json()
-    console.log(userInfo)
+    
     }catch(e) {
         console.log(e)
     }

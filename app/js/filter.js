@@ -33,7 +33,7 @@ const getCategories = async () => {
                 buttonz.classList.remove('current')
             })
             button.classList.add('current')
-            console.log(button.dataset.name)
+            
             if(button.dataset.name === `All`) {
                 try {
                     const response1 = await fetch('http://localhost:3001/api/getAllBlogs', {
@@ -43,7 +43,7 @@ const getCategories = async () => {
                     }
                 })
                 let allBlogs = await response1.json()
-                console.log(allBlogs)
+                
                 let output = document.getElementById('output')
                 output.innerHTML = '';
                 allBlogs.forEach(blog => {
@@ -78,7 +78,7 @@ const getCategories = async () => {
                 let data = {
                     title : name
                 }
-                console.log(data)
+                
                 const response = await fetch('http://localhost:3001/api/blogsByCategory', {
                 method: "POST",
                 headers:{'Content-Type': 'application/json'},

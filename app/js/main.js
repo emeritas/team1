@@ -1,9 +1,3 @@
-/* const e = require("cors");
-
-console.log('This is the Main.js file. It should be the 3rd and final file'); */
-
-/* const e = require("cors"); */
-
 //REGISTRACIJAI,LOGINUI,ATSIJUNGIMUI,USERIO DUOMENU PAKEITIMUI
 const loginSubmit = document.querySelector('#loginSubmit');
 const registerSubmit = document.querySelector('#registerSubmit');
@@ -146,7 +140,7 @@ if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('logged
         })
         if(response.status != 200) throw await response.json()
         let allItems = await response.json()
-        console.log(allItems)
+        
         allItems.forEach(currentItem => {
             output.innerHTML += `
             <div class="col-md-6 col-sm-12">
@@ -201,8 +195,7 @@ function readMoreCollapse() {
                 collapsibleItem.classList.add('hide_content')
                 element.innerText = 'Read More'
             }
-            console.log(currParagraph)
-            console.log(collapsibleItem.classList)
+            
         })
     })
 }

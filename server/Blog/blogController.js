@@ -5,7 +5,7 @@ const Blog = require('./blogModel')
 saveBlog = async (req, res) => {
     let body = req.body;
     let file = req.file;
-    console.log(body)
+    
     let blog = new Blog({
         content: body.content,
         title: body.title,
@@ -79,7 +79,7 @@ removeBlog = async (req, res) => {
 addCoverImage = async (req, res) => {
     let file = req.file;
     let user = req.user;
-    console.log(file)
+    
     try {
         user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
         await user.save()
