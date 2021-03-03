@@ -140,6 +140,8 @@ header {
 
 .oneUserblogItem {
   height: auto; }
+  .oneUserblogItem .hide_content {
+    display: none; }
   .oneUserblogItem .oneUserblogItem__image img {
     background-color: rgba(255, 255, 255, 0.212);
     width: 100%;

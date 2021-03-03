@@ -2,6 +2,8 @@
 
 console.log('This is the Main.js file. It should be the 3rd and final file'); */
 
+/* const e = require("cors"); */
+
 //REGISTRACIJAI,LOGINUI,ATSIJUNGIMUI,USERIO DUOMENU PAKEITIMUI
 const loginSubmit = document.querySelector('#loginSubmit');
 const registerSubmit = document.querySelector('#registerSubmit');
@@ -63,7 +65,7 @@ window.location.href = '/app/index.html';
 })
 
 // Logino fetchas
-if(localStorage.getItem('loggedIn') === `false`){
+if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('loggedIn')){
     loginSubmit.addEventListener('click', async (e) =>{
         e.preventDefault()
         let username = usernameLogin.value
@@ -145,20 +147,20 @@ async function getAllPostsAndPopulateUI() {
     if(response.status != 200) throw await response.json()
     let allItems = await response.json()
     console.log(allItems)
-    allItems.forEach(element => {
+    allItems.forEach(currentItem => {
         output.innerHTML += `
         <div class="col-md-6 col-sm-12">
             <div class="oneUserblogItem card card--dark mb-3">
                 <div class="oneUserblogItem__image">
-                    <img src="${element.coverImageURL}" alt="">
+                    <img src="${currentItem.coverImageURL}" alt="">
                 </div>
                 <div class="oneUserblogItem__info">
-                    <h3>${element.title}</h3>
-                    <h4>${element.author}</h4>
-                    <p id='desc${i}' class="blogItem__description">${element.content}</p>
+                    <h3>${currentItem.title}</h3>
+                    <h4>${currentItem.author}</h4>
+                    <p id='desc${i}' class="blogItem__description">${currentItem.content}</p>
                     <div class="collapse" id="collapseExample${i}">
-                        <div class="">
-                            <p>${element.content}</p>
+                        <div id='collapsible-item${i}' class="collapse-item">
+                            <p id='collapse-item${i}'>${currentItem.content}</p>
                         </div>
                     </div>
                     <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
@@ -168,28 +170,40 @@ async function getAllPostsAndPopulateUI() {
         `
         i = i + 1;
     });
-    readMoreCollapse
+    readMoreCollapse()
     }catch(e) {
         console.log(e)
     }
 }
-
+// READ MORE nu cia idomiai idomiai :)
 function readMoreCollapse() {
     const readMoreBtns = document.querySelectorAll('.read-more');
-    const collapsibles = document.querySelectorAll('.collapse');
-
-    readMoreBtns.forEach(element,index => {
-        let desc = document.getElementById(`desc${index}`).innerHTML = ``;
+    readMoreBtns.forEach((element,index) => {
         element.addEventListener('click', () => {
-            console.log(element.previousSibling.previousSibling)
-            collapsibles.forEach(collapsible => {
-                console.log(collapsible)
-               collapsible.classList.remove('show') 
+            let currParagraph = document.querySelector('#desc'+index)
+            let collapsibleItem = document.querySelector('#collapsible-item'+index);
+            let allParagraphs = document.querySelectorAll('.blogItem__description');
+            let allCollapseItems = document.querySelectorAll('.collapse-item')
+            allParagraphs.forEach(element1 => {
+                element1.classList.remove('hide_content');
             })
-            element.previousSibling.previousSibling.classList.remove('show') 
+            allCollapseItems.forEach(element2 => {
+                element2.classList.add('hide_content');
+            })
+            if(element.getAttribute('aria-expanded') === null || element.getAttribute('aria-expanded') === 'false') {
+                currParagraph.classList.add('hide_content')
+                collapsibleItem.classList.remove('hide_content')
+                element.innerText = 'Read Less'
+            } else {
+                currParagraph.classList.remove('hide_content')
+                collapsibleItem.classList.add('hide_content')
+                element.innerText = 'Read More'
+            }
+            console.log(currParagraph)
+            console.log(collapsibleItem.classList)
         })
     })
-}
+} 
 
 
 
