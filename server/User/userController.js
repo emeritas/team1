@@ -17,6 +17,9 @@ login = async (req, res) => {
     let user = await User.findOne({
       username: req.body.username
     })
+    if(!user.profileImageURL) {
+      user.profileImageURL = `http://localhost:3001/uploads/1614798015243-neaiskus.png`;
+    }
     if (!user) throw "User doesn't exist"
     let response = await bcrypt.compare(req.body.password, user.password)
 
@@ -78,7 +81,11 @@ updateUserInfo = async(req,res) => {
        if(req.body.description) user.description = req.body.description;
        if(req.body.email) user.email = req.body.email;
        if(req.body.username)user.username = req.body.username;
-       if(user.profileImageURL) user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
+       if(user.profileImageURL){
+          user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
+        }else {
+          user.profileImageURL = `http://localhost:3001/uploads/1614798015243-neaiskus.png`;
+        }
        await user.save();
        res.json(user);
     } catch(e) {

@@ -38,8 +38,23 @@ submit.addEventListener('click', async (e)=> {
     let title = reviewTitle.value;
     let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.category;
     let content = reviewContent.value;
-    
     let file = document.getElementById('fileInput').files[0]
+    if(!title) {
+     document.getElementById('sub-err').innerHTML = `Add a title`
+     return false   
+    } 
+    if(!category) {
+        document.getElementById('sub-err').innerHTML = `Add a category`
+        return false  
+    } 
+    if(!content) {
+      document.getElementById('sub-err').innerHTML = `Add content`
+      return false    
+    } 
+    if(!file) {
+       document.getElementById('sub-err').innerHTML = `Add a background img`
+       return false  
+    } 
     let formData = new FormData()
     formData.append('test', file)
     formData.append('title', title)
@@ -59,6 +74,6 @@ submit.addEventListener('click', async (e)=> {
     let blog = await response.json()
     console.log(blog)
     }catch(e) {
-        console.log(e)
+        document.getElementById('sub-err').innerHTML = e
     }
 })

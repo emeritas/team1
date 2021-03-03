@@ -13,13 +13,17 @@ saveBlog = async (req, res) => {
         author: req.user.username,
         publishDate: `${new Date().getFullYear()}-${new Date().getMonth()}-${new Date().getDate()}`
     })
-  
+    
     try {
+        if(!blog.title) throw `Please add a title`
+        if(!blog.content) throw `Please add content`
+        if(!blog.category) throw `Please add a category`
+        if(!file) throw `Please add a picture for your post`
         blog.coverImageURL = `http://localhost:3001/${file.path}`
         let savedBlog = await blog.save()
         res.json(savedBlog)
     } catch(e) {
-        res.status(400).json(e)
+        console.log(e)
     }
 }
 

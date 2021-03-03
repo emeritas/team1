@@ -33,7 +33,7 @@ if(localStorage.getItem('loggedIn') === 'true') {
     userAvatar();
 }
 
-getAllPostsAndPopulateUI()
+if(window.location.href === `http://127.0.0.1:5501/app/index.html`) getAllPostsAndPopulateUI()
 
 if(loggedIn) userAvatar()
 async function userAvatar() {
@@ -135,46 +135,47 @@ if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('logged
 }
 
 // FETCHINAMI VISI POSTAI
-async function getAllPostsAndPopulateUI() {
-    let i = 0;
-    try{
-        const response = await fetch('http://localhost:3001/api/getAllBlogs', {
-        method:'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    if(response.status != 200) throw await response.json()
-    let allItems = await response.json()
-    console.log(allItems)
-    allItems.forEach(currentItem => {
-        output.innerHTML += `
-        <div class="col-md-6 col-sm-12">
-            <div class="oneUserblogItem card card--dark mb-3">
-                <div class="oneUserblogItem__image">
-                    <img src="${currentItem.coverImageURL}" alt="">
-                </div>
-                <div class="oneUserblogItem__info">
-                    <h3>${currentItem.title}</h3>
-                    <h4>${currentItem.author}</h4>
-                    <p id='desc${i}' class="blogItem__description">${currentItem.content}</p>
-                    <div class="collapse" id="collapseExample${i}">
-                        <div id='collapsible-item${i}' class="collapse-item">
-                            <p id='collapse-item${i}'>${currentItem.content}</p>
-                        </div>
+    async function getAllPostsAndPopulateUI() {
+        let i = 0;
+        try{
+            const response = await fetch('http://localhost:3001/api/getAllBlogs', {
+            method:'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if(response.status != 200) throw await response.json()
+        let allItems = await response.json()
+        console.log(allItems)
+        allItems.forEach(currentItem => {
+            output.innerHTML += `
+            <div class="col-md-6 col-sm-12">
+                <div class="oneUserblogItem card card--dark mb-3">
+                    <div class="oneUserblogItem__image">
+                        <img src="${currentItem.coverImageURL}" alt="">
                     </div>
-                    <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
+                    <div class="oneUserblogItem__info">
+                        <h3>${currentItem.title}</h3>
+                        <h4>${currentItem.author}</h4>
+                        <p id='desc${i}' class="blogItem__description">${currentItem.content}</p>
+                        <div class="collapse" id="collapseExample${i}">
+                            <div id='collapsible-item${i}' class="collapse-item">
+                                <p id='collapse-item${i}'>${currentItem.content}</p>
+                            </div>
+                        </div>
+                        <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        `
-        i = i + 1;
-    });
-    readMoreCollapse()
-    }catch(e) {
-        console.log(e)
+            `
+            i = i + 1;
+        });
+        readMoreCollapse()
+        }catch(e) {
+            console.log(e)
+        }
     }
-}
+/* if(window.location) */
 
 // READ MORE nu cia idomiai idomiai :)
 function readMoreCollapse() {
