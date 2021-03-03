@@ -27,7 +27,12 @@ const getCategories = async () => {
             
         })
         const allFilterButtons = document.querySelectorAll('.filter__single-item')
-        allFilterButtons.forEach(button => button.addEventListener('click', async () => {
+        allFilterButtons.forEach(button =>{
+            button.addEventListener('click', async () => {
+            allFilterButtons.forEach(buttonz => {
+                buttonz.classList.remove('current')
+            })
+            button.classList.add('current')
             console.log(button.dataset.name)
             if(button.dataset.name === `All`) {
                 try {
@@ -107,7 +112,7 @@ const getCategories = async () => {
             }catch(e){
                 console.log(e)
             }    
-        }))
+        })})
     }catch(e){
         console.log(e)
     }    
