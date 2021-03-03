@@ -115,7 +115,7 @@
             <div class="container text-center">
                 <div class="row justify-content-center" id="row_style">
                     <div class="col-md-8 col-md-offset-4">
-                        <!-- <form> -->
+                        <div>
                             <p class="note">NOTE: the fields that you leave empty will NOT change</p>
                             <div class="form-group">
                                 <input type="email" class="form-control field-style" id="InputEmail" aria-describedby="emailHelp" placeholder="Enter New Email Address">
@@ -132,17 +132,14 @@
                             <div class="form-group d-flex flex-column justify-content-center">
                                 <label for="InputAvatar">Upload File To Change Profile Avatar</label>
                                 <input type="file" id="fileInput" class="form-control__file btn btn-warning" id="InputAvatar">
-                                <div>
-                                    <button class="btn btn-warning my-5" id="fileSubmit">Upload File</button>
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="InputDescription">Change Your Description</label>
                                 <textarea class="editor field-style" name="comment" id="InputDescription"></textarea>
                             </div>
-                            <button id="submit" type="submit" class="btn btn-warning btn-md">Change Your Information</button>
+                            <button id="submit" type="button" class="btn btn-warning btn-md">Change Your Information</button>
                             <p class="err"></p>
-                            <!--  </form> -->
+                        </div>
                     </div>
                 </div>
             </div>

@@ -66,6 +66,10 @@ changePicture = async (req, res) => {
 
 updateUserInfo = async(req,res) => {
     let user = req.user;
+    let file = req.file;
+    /* let file = req.file; */
+    console.log(req.body)
+    console.log(req.file)
     try {
       if(req.body.password || req.body.password2) {
         if(!req.body.password) throw 'Enter your old password'
@@ -77,6 +81,7 @@ updateUserInfo = async(req,res) => {
        if(req.body.description) user.description = req.body.description;
        if(req.body.email) user.email = req.body.email;
        if(req.body.username)user.username = req.body.username;
+       if(user.profileImageURL) user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
        await user.save();
        res.json(user);
     } catch(e) {

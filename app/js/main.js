@@ -2,6 +2,8 @@
 
 console.log('This is the Main.js file. It should be the 3rd and final file'); */
 
+/* const e = require("cors"); */
+
 //REGISTRACIJAI,LOGINUI,ATSIJUNGIMUI,USERIO DUOMENU PAKEITIMUI
 const loginSubmit = document.querySelector('#loginSubmit');
 const registerSubmit = document.querySelector('#registerSubmit');
@@ -17,10 +19,7 @@ const webtok = localStorage.getItem('blog-user-id');
 const loggedIn = document.querySelector('.loggedIn')
 const body = document.querySelector('body')
 const viewMyProfile = document.getElementById('viewMyProfile');
-const output = document.getElementById('output')
-const filter = document.getElementById('filter');
-const filterButtons = document.querySelectorAll('.filter__single-item');
-
+const output = document.getElementById('output');
 // BLOGO BOXAI
 const blogItem = document.querySelector('.blogImage');
 
@@ -66,7 +65,7 @@ window.location.href = '/app/index.html';
 })
 
 // Logino fetchas
-if(localStorage.getItem('loggedIn') === `false`){
+if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('loggedIn')){
     loginSubmit.addEventListener('click', async (e) =>{
         e.preventDefault()
         let username = usernameLogin.value
@@ -147,21 +146,21 @@ async function getAllPostsAndPopulateUI() {
     })
     if(response.status != 200) throw await response.json()
     let allItems = await response.json()
-    // console.log(allItems)
-    allItems.forEach(element => {
+    console.log(allItems)
+    allItems.forEach(currentItem => {
         output.innerHTML += `
         <div class="col-md-6 col-sm-12">
             <div class="oneUserblogItem card card--dark mb-3">
                 <div class="oneUserblogItem__image">
-                    <img src="${element.coverImageURL}" alt="">
+                    <img src="${currentItem.coverImageURL}" alt="">
                 </div>
                 <div class="oneUserblogItem__info">
-                    <h3>${element.title}</h3>
-                    <h4>${element.author}</h4>
-                    <p class="blogItem__description">${element.content}</p>
+                    <h3>${currentItem.title}</h3>
+                    <h4>${currentItem.author}</h4>
+                    <p id='desc${i}' class="blogItem__description">${currentItem.content}</p>
                     <div class="collapse" id="collapseExample${i}">
-                        <div class="card card-body card--dark">
-                            <p>${element.content}</p>
+                        <div id='collapsible-item${i}' class="collapse-item">
+                            <p id='collapse-item${i}'>${currentItem.content}</p>
                         </div>
                     </div>
                     <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
@@ -171,44 +170,40 @@ async function getAllPostsAndPopulateUI() {
         `
         i = i + 1;
     });
+    readMoreCollapse()
     }catch(e) {
         console.log(e)
     }
 }
-// Get categories for filter
-// const getCategories = async () => {
-//     try{
-//     const response = await fetch('http://localhost:3001/api/category/get', {
-//         method: "GET",
-//         headers:{"blog-user-id": webtok}
-//         })
-//         let categories = await response.json();
-//         let i = 0;
-//         let listItem = document.createElement("li");
-//         listItem.innerText = "All";
-//         listItem.dataset.name = "All";
-//         listItem.classList = "filter__single-item current";
-//         filter.append(listItem)
-//         categories.forEach(category => {
-//             i++;
-//             if(i > 0){
-//                 listItem = document.createElement("li");
-//                 listItem.classList = "filter__single-item";
-//                 listItem.innerText = category.title;
-//                 listItem.dataset.name = category.title;
-//             }
-//             filter.append(listItem)
-            
-//         })
-//     }catch(e){
-//         console.log(e)
-//     }    
-// }
-// getCategories()
-
-// -- filtering categories
-// filterButtons.forEach(button =>)
-
+// READ MORE nu cia idomiai idomiai :)
+function readMoreCollapse() {
+    const readMoreBtns = document.querySelectorAll('.read-more');
+    readMoreBtns.forEach((element,index) => {
+        element.addEventListener('click', () => {
+            let currParagraph = document.querySelector('#desc'+index)
+            let collapsibleItem = document.querySelector('#collapsible-item'+index);
+            let allParagraphs = document.querySelectorAll('.blogItem__description');
+            let allCollapseItems = document.querySelectorAll('.collapse-item')
+            allParagraphs.forEach(element1 => {
+                element1.classList.remove('hide_content');
+            })
+            allCollapseItems.forEach(element2 => {
+                element2.classList.add('hide_content');
+            })
+            if(element.getAttribute('aria-expanded') === null || element.getAttribute('aria-expanded') === 'true') {
+                currParagraph.classList.add('hide_content')
+                collapsibleItem.classList.remove('hide_content')
+                element.innerText = 'Read Less'
+            } else {
+                currParagraph.classList.remove('hide_content')
+                collapsibleItem.classList.add('hide_content')
+                element.innerText = 'Read More'
+            }
+            console.log(currParagraph)
+            console.log(collapsibleItem.classList)
+        })
+    })
+} 
 
 // footer date
 document.querySelector("#current-year").innerHTML = new Date().getFullYear();
