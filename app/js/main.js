@@ -190,7 +190,7 @@ function readMoreCollapse() {
             allCollapseItems.forEach(element2 => {
                 element2.classList.add('hide_content');
             })
-            if(element.getAttribute('aria-expanded') === null || element.getAttribute('aria-expanded') === 'false') {
+            if(element.getAttribute('aria-expanded') === null || element.getAttribute('aria-expanded') === 'true') {
                 currParagraph.classList.add('hide_content')
                 collapsibleItem.classList.remove('hide_content')
                 element.innerText = 'Read Less'
@@ -204,7 +204,6 @@ function readMoreCollapse() {
         })
     })
 } 
-
 
 
 

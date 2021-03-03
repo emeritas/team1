@@ -44,6 +44,7 @@ router.post('/category/add', CategoryController.addCategory)
 router.get('/category/get', CategoryController.getAll)
 router.patch('/category/update/:id', CategoryController.updateCategory)
 router.post('/category/delete/:id', CategoryController.deleteCategory)
+router.get('/category/getTitle/:id', CategoryController.getCategoryTitle)
 
 // Blog routes 
 // išsaugoti blogo straipsnį
@@ -51,7 +52,7 @@ router.post('/blog', UserMiddleware.authenticate, upload.single('test'), BlogCon
 // gauti visus straipsnius pagal userį
 router.get('/blog', UserMiddleware.authenticate,  BlogControler.getAllBlog)
 // ištrinti blogo straipsnį
-router.delete('/blog/:_id', UserMiddleware.authenticate, BlogControler.removeBlog)
+router.delete('/blog/:id', UserMiddleware.authenticate, BlogControler.removeBlog)
 // uždėti straipsniui paveikslėlį
 router.post('/blog/uploads', UserMiddleware.authenticate, upload.single('test'), BlogControler.addCoverImage)
 // atnaujinti blogo įrašą

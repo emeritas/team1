@@ -1,8 +1,13 @@
+// const { getCategoryTitle } = require("../../server/Category/categoryController");
+
 const blogAuthor = document.getElementById("author-name");
-const blog = document.getElementById("blog");
+const blogItems = document.getElementById("blog");
 const profilePic = document.getElementById('user-image');
 const userDescription = document.getElementById('author-description')
 let url = 'http://localhost:3001/api/';
+
+
+
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -25,24 +30,68 @@ getAllItems = async () => {
         if(response.status != 200) throw await response.json();
         let items = await response.json();
         console.log(items)
-        displayAllItems(items)
+        globalItems = items;
+        getCategoryTitle(items)
     } catch(e) {
         console.log(e)
     }
 }
 
+getCategoryTitle = async (items) => {
+    blogItems.innerHTML = ''
+    try {
+        items.forEach(async (blog, index) => {
+            console.log(blog)
+            const response = await fetch(url + 'category/getTitle/'+ blog.category, {
+                method: 'GET',
+                headers: {
+                    "Content-Type": "application/json",
+                    "blog-user-id": token
+                }
+            }).then(res => res.json()).then(data =>  blogItems.innerHTML +=
+                `<div class="blog__item card card--dark">
+                        <h4 class="blog__title">${blog.title}</h4>
+                        <h6 class="blog__category">${data.title}</h6>
+                        <p>${blog.content}</p>
+                        <button class="btn-delete" onclick="deleteBlog('${blog._id}', ${index})" style="position:absolute; top:1.2rem; right:1rem; width:30px; height:30px; border:none; border-radius:5px"><i class="far fa-trash-alt"></i></button>
+                    </div>`)
 
-displayAllItems = (items) => {
-    let blogItems = ''
-    items.forEach((blog) => {
-        blogItems +=
-            `<div class="blog__item card card--dark">
-                <h4 class="blog__title">${blog.title}</h4>
-                <h6 class="blog__category">${blog.category}</h6>
-                <p>${blog.content}</p>
-            </div>`
-    });
-    blog.innerHTML = blogItems;
+
+            // if(response.status != 200) throw await response.json();
+    
+            // let category = await response.json()
+
+            // blog.innerHTML +=
+            // `<div class="blog__item card card--dark">
+            //         <h4 class="blog__title">${blog.title}</h4>
+            //         <h6 class="blog__category">${category.title}</h6>
+            //         <p>${blog.content}</p>
+            //     </div>`
+    
+            // blog.innerHTML = blogItems;
+        });
+ 
+
+    } catch(e) {
+        console.log(e)
+    }
+
+}
+
+deleteBlog = async (id, index) => {
+    try {
+        globalItems.splice(index, 1)
+        getCategoryTitle(globalItems)
+        const response = await fetch(url + 'blog/' + id, {
+            method: 'DELETE',
+            headers: {
+                "Content-Type": "application/json",
+                "blog-user-id": token
+            }
+        })
+    } catch(e) {
+        console.log(e)
+    }
 }
 
 
