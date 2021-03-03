@@ -67,9 +67,6 @@ changePicture = async (req, res) => {
 updateUserInfo = async(req,res) => {
     let user = req.user;
     let file = req.file;
-    /* let file = req.file; */
-    console.log(req.body)
-    console.log(req.file)
     try {
       if(req.body.password || req.body.password2) {
         if(!req.body.password) throw 'Enter your old password'
