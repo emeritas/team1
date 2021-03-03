@@ -20,11 +20,13 @@ li {
 h1 {
   font-size: 1.5rem; }
 
-.main-bg h1,
-.main-bg h2,
-.main-bg h3,
-.main-bg h4 {
-  color: #ffc107; }
+.main-bg {
+  min-height: 81vh; }
+  .main-bg h1,
+  .main-bg h2,
+  .main-bg h3,
+  .main-bg h4 {
+    color: #ffc107; }
 
 .brand-name {
   font-size: 20px; }
