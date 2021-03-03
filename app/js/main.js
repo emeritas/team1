@@ -27,7 +27,7 @@ if(localStorage.getItem('loggedIn') === 'true') {
     userAvatar();
 }
 
-if(window.location.href === "http://127.0.0.1:5500/app/index.html") getAllPostsAndPopulateUI();
+if(window.location.href === "http://127.0.0.1:5501/app/index.html") getAllPostsAndPopulateUI();
 
 if(loggedIn) userAvatar()
 async function userAvatar() {
@@ -170,13 +170,11 @@ if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('logged
 
 // READ MORE
 function readMoreCollapse() {
-    
     const readMoreBtns = document.querySelectorAll('.read-more-btn');
     readMoreBtns.forEach((btn,index) => {
         btn.addEventListener('click', (e) => {
             let element = e.target;
             let parent = element.parentElement;
-
             if(parent.classList.contains('show')){
                 parent.classList.remove('show');
             }else{
