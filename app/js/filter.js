@@ -109,36 +109,12 @@ const getCategories = async () => {
                 console.log(e)
             }    
         })})
-        readMoreCollapse()
+
     }catch(e){
         console.log(e)
     }    
 }
 getCategories()
-
-// READ MORE
-function readMoreCollapse() {
-    
-    const readMoreBtns = document.querySelectorAll('.read-more-btn');
-    readMoreBtns.forEach((btn,index) => {
-        btn.addEventListener('click', (e) => {
-            let element = e.target;
-            let parent = element.parentElement;
-
-            if(parent.classList.contains('show')){
-                parent.classList.remove('show');
-            }else{
-                let allParentElements = document.querySelectorAll('.oneUserblogItem__info');
-                allParentElements.forEach(elem => {
-                    if(elem.classList.contains('show')){
-                        elem.classList.remove('show');
-                    }
-                })
-                parent.classList.add('show');
-            }
-        })
-    })
-}
 
 
 
