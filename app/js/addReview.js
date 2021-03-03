@@ -22,7 +22,7 @@ async function getCategories() {
                 option = document.createElement("option");
                 option.classList = "single-category";
                 option.innerText = category.title;
-                option.dataset.id = category._id;
+                option.dataset.category = category._id;
                 option.value = category.title;
             }
             reviewCategory.append(option)
@@ -36,10 +36,25 @@ async function getCategories() {
 submit.addEventListener('click', async (e)=> {
     e.preventDefault();
     let title = reviewTitle.value;
-    let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.id;
+    let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.category;
     let content = reviewContent.value;
-
     let file = document.getElementById('fileInput').files[0]
+    if(!title) {
+     document.getElementById('sub-err').innerHTML = `Add a title`
+     return false   
+    } 
+    if(!category) {
+        document.getElementById('sub-err').innerHTML = `Add a category`
+        return false  
+    } 
+    if(!content) {
+      document.getElementById('sub-err').innerHTML = `Add content`
+      return false    
+    } 
+    if(!file) {
+       document.getElementById('sub-err').innerHTML = `Add a background img`
+       return false  
+    } 
     let formData = new FormData()
     formData.append('test', file)
     formData.append('title', title)
@@ -57,8 +72,8 @@ submit.addEventListener('click', async (e)=> {
     })
     if(response.status != 200) throw await response.json()
     let blog = await response.json()
-    console.log(blog)
+    
     }catch(e) {
-        console.log(e)
+        document.getElementById('sub-err').innerHTML = e
     }
 })

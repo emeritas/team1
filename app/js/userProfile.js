@@ -16,7 +16,14 @@ submit.addEventListener('click', async (e)=> {
     let description = InputDescription.value;
     let email = inputEmail.value;
     let file = document.getElementById('fileInput').files[0]
-    
+    if(!username && !password && !password2 && !description && !email && !file) {
+        document.getElementById('sub-err').innerHTML = `Please enter a field you wish to change`
+        return false
+    }
+    if(password && !password2 || !password && password2) {
+        document.getElementById('sub-err').innerHTML = `Please enter both passwords: the one you youse and the new password`
+        return false
+    }
     let formData = new FormData()
     formData.append('test', file)
     formData.append('username', username)
@@ -36,7 +43,7 @@ submit.addEventListener('click', async (e)=> {
     })
     if(response.status != 200) throw await response.json()
     let user = await response.json()
-    console.log(userInfo)
+    
     }catch(e) {
         console.log(e)
     }

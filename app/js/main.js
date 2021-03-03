@@ -1,6 +1,4 @@
-/* const e = require("cors"); */
 
-//REGISTRACIJAI,LOGINUI,ATSIJUNGIMUI,USERIO DUOMENU PAKEITIMUI
 const loginSubmit = document.querySelector('#loginSubmit');
 const registerSubmit = document.querySelector('#registerSubmit');
 const usernameRegister = document.getElementById('username-register');
@@ -29,7 +27,7 @@ if(localStorage.getItem('loggedIn') === 'true') {
     userAvatar();
 }
 
-getAllPostsAndPopulateUI()
+if(window.location.href === `http://127.0.0.1:5501/app/index.html`) getAllPostsAndPopulateUI()
 
 if(loggedIn) userAvatar()
 async function userAvatar() {
@@ -131,42 +129,44 @@ if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('logged
 }
 
 // FETCHINAMI VISI POSTAI
-async function getAllPostsAndPopulateUI() {
-    let i = 0;
-    try{
-        const response = await fetch('http://localhost:3001/api/getAllBlogs', {
-        method:'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-    if(response.status != 200) throw await response.json()
-    let allItems = await response.json()
-    allItems.forEach(currentItem => {
-        output.innerHTML += `
-        <div class="col-md-6 col-sm-12">
-            <div class="oneUserblogItem card card--dark mb-3">
-                <div class="oneUserblogItem__image">
-                    <img src="${currentItem.coverImageURL}" alt="">
-                </div>
-                <div class="oneUserblogItem__info">
-                    <h3>${currentItem.title}</h3>
-                    <p>Author: ${currentItem.author}</p>
+    async function getAllPostsAndPopulateUI() {
+        let i = 0;
+        try{
+            const response = await fetch('http://localhost:3001/api/getAllBlogs', {
+            method:'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        if(response.status != 200) throw await response.json()
+        let allItems = await response.json()
+        
+        allItems.forEach(currentItem => {
+            output.innerHTML += `
+            <div class="col-md-6 col-sm-12">
+                <div class="oneUserblogItem card card--dark mb-3">
+                    <div class="oneUserblogItem__image">
+                        <img src="${currentItem.coverImageURL}" alt="">
+                    </div>
+                    <div class="oneUserblogItem__info">
+                        <h3>${currentItem.title}</h3>
+                        <p>Author: ${currentItem.author}</p>
                     <div class="read-more-block">
                         <p class="blogItem__description animated fadeIn">${currentItem.content}</p>
                     </div>
                     <button class="read-more-btn btn btn-warning"><span class="more-btn">Read Review</span><span class="less-btn">Read Less</span></button>
+                    </div>
                 </div>
             </div>
-        </div>
-        `
-        i = i + 1;
-    });
-    readMoreCollapse()
-    }catch(e) {
-        console.log(e)
+            `
+            i = i + 1;
+        });
+        readMoreCollapse()
+        }catch(e) {
+            console.log(e)
+        }
     }
-}
+
 
 
 // READ MORE
@@ -191,7 +191,9 @@ function readMoreCollapse() {
             }
         })
     })
-} 
+}
+
+
 
 // footer date
 document.querySelector("#current-year").innerHTML = new Date().getFullYear();

@@ -24,6 +24,7 @@ getAllItems = async () => {
         })
         if(response.status != 200) throw await response.json();
         let items = await response.json();
+        
         globalItems = items;
         getCategoryTitle(items)
     } catch(e) {
@@ -35,6 +36,7 @@ getCategoryTitle = async (items) => {
     blogItems.innerHTML = ''
     try {
         items.forEach(async (blog, index) => {
+            
             const response = await fetch(url + 'category/getTitle/'+ blog.category, {
                 method: 'GET',
                 headers: {
