@@ -1,7 +1,3 @@
-/* const e = require("cors");
-
-console.log('This is the Main.js file. It should be the 3rd and final file'); */
-
 /* const e = require("cors"); */
 
 //REGISTRACIJAI,LOGINUI,ATSIJUNGIMUI,USERIO DUOMENU PAKEITIMUI
@@ -146,7 +142,7 @@ async function getAllPostsAndPopulateUI() {
     })
     if(response.status != 200) throw await response.json()
     let allItems = await response.json()
-    console.log(allItems)
+
     allItems.forEach(currentItem => {
         output.innerHTML += `
         <div class="col-md-6 col-sm-12">

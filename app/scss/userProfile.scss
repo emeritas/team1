@@ -1,3 +1,14 @@
+// Variables
+/* Colors*/
+$primary-color: #ffc107;
+$main-bg-color: #101013e3;
+
+// helpers
+.grey-bg {
+  background-color: $main-bg-color;
+  color: #fff;
+}
+
 main {
   form {
     margin: 60px 0;
