@@ -1,26 +1,4 @@
 const filter = document.getElementById('filter');
-const getFilters = async () => {
-    try{
-        
-    const filterButtons = await document.querySelectorAll('.filter__single-item');
-    console.log(filterButtons);
-    // -- filtering categories
-    filterButtons.forEach(button => {
-        button.addEventListener("click", (e) => {
-        
-            let element = e.target;
-            console.log(element)
-            if(element.classList.contains('current')){
-                element.classList.remove('current')
-            } else{
-                element.classList.add('current')
-            }
-        })
-    });
-    } catch(e) {
-        console.log(e)
-    }
-}
 
 
 // Get categories for filter
