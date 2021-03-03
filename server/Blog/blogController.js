@@ -6,8 +6,7 @@ saveBlog = async (req, res) => {
     let body = req.body;
     let file = req.file;
     console.log(req.user)
-    /* console.log(body)
-    console.log(req.user) */
+
     let blog = new Blog({
         content: body.content,
         title: body.title,
