@@ -146,7 +146,7 @@ async function getAllPostsAndPopulateUI() {
     })
     if(response.status != 200) throw await response.json()
     let allItems = await response.json()
-    console.log(allItems)
+ 
     allItems.forEach(currentItem => {
         output.innerHTML += `
         <div class="col-md-6 col-sm-12">
@@ -156,14 +156,11 @@ async function getAllPostsAndPopulateUI() {
                 </div>
                 <div class="oneUserblogItem__info">
                     <h3>${currentItem.title}</h3>
-                    <h4>${currentItem.author}</h4>
-                    <p id='desc${i}' class="blogItem__description">${currentItem.content}</p>
-                    <div class="collapse" id="collapseExample${i}">
-                        <div id='collapsible-item${i}' class="collapse-item">
-                            <p id='collapse-item${i}'>${currentItem.content}</p>
-                        </div>
+                    <p>Author: ${currentItem.author}</p>
+                    <div class="read-more-block">
+                        <p class="blogItem__description animated fadeIn">${currentItem.content}</p>
                     </div>
-                    <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
+                    <button class="read-more-btn btn btn-warning"><span class="more-btn">Read Review</span><span class="less-btn">Read Less</span></button>
                 </div>
             </div>
         </div>
@@ -175,32 +172,28 @@ async function getAllPostsAndPopulateUI() {
         console.log(e)
     }
 }
-// READ MORE nu cia idomiai idomiai :)
+
+
+// READ MORE
 function readMoreCollapse() {
-    const readMoreBtns = document.querySelectorAll('.read-more');
-    readMoreBtns.forEach((element,index) => {
-        element.addEventListener('click', () => {
-            let currParagraph = document.querySelector('#desc'+index)
-            let collapsibleItem = document.querySelector('#collapsible-item'+index);
-            let allParagraphs = document.querySelectorAll('.blogItem__description');
-            let allCollapseItems = document.querySelectorAll('.collapse-item')
-            allParagraphs.forEach(element1 => {
-                element1.classList.remove('hide_content');
-            })
-            allCollapseItems.forEach(element2 => {
-                element2.classList.add('hide_content');
-            })
-            if(element.getAttribute('aria-expanded') === null || element.getAttribute('aria-expanded') === 'true') {
-                currParagraph.classList.add('hide_content')
-                collapsibleItem.classList.remove('hide_content')
-                element.innerText = 'Read Less'
-            } else {
-                currParagraph.classList.remove('hide_content')
-                collapsibleItem.classList.add('hide_content')
-                element.innerText = 'Read More'
+    
+    const readMoreBtns = document.querySelectorAll('.read-more-btn');
+    readMoreBtns.forEach((btn,index) => {
+        btn.addEventListener('click', (e) => {
+            let element = e.target;
+            let parent = element.parentElement;
+
+            if(parent.classList.contains('show')){
+                parent.classList.remove('show');
+            }else{
+                let allParentElements = document.querySelectorAll('.oneUserblogItem__info');
+                allParentElements.forEach(elem => {
+                    if(elem.classList.contains('show')){
+                        elem.classList.remove('show');
+                    }
+                })
+                parent.classList.add('show');
             }
-            console.log(currParagraph)
-            console.log(collapsibleItem.classList)
         })
     })
 } 

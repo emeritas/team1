@@ -215,6 +215,37 @@ header {
   }
 }
 
+// Read Reviews
+.read-more-block{
+  opacity: 0;
+  visibility: hidden;
+  height:0;
+  transition:all 0.3s ease-in-out;
+}
+
+.less-btn{
+  display:none;
+  pointer-events: none;
+}
+.more-btn{
+  display:block;
+  pointer-events: none;
+}
+
+.show{
+  .read-more-block{
+    opacity: 1;
+    visibility:visible;
+    height:100%;
+  }
+  .less-btn{
+    display:block;
+  }
+  .more-btn{
+    display:none;
+  }
+}
+
 // Main
 
 .oneUserblogItem {
@@ -530,5 +561,89 @@ footer {
         }
       }
     }
+  }
+}
+
+/* ANIMATIONS */
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+    -ms-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    -ms-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    -ms-transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    -ms-transform: scale(1.0);
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 40px, 0);
   }
 }
