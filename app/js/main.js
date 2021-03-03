@@ -65,7 +65,7 @@ window.location.href = '/app/index.html';
 })
 
 // Logino fetchas
-if(localStorage.getItem('loggedIn') === `false`){
+if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('loggedIn')){
     loginSubmit.addEventListener('click', async (e) =>{
         e.preventDefault()
         let username = usernameLogin.value
@@ -203,7 +203,7 @@ function readMoreCollapse() {
             console.log(collapsibleItem.classList)
         })
     })
-}
+} 
 
 
 

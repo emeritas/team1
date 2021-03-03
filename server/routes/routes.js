@@ -34,8 +34,8 @@ router.get('/logout', UserMiddleware.authenticate, UserController.logout)
 // gauti visus useriui(testavimui)
 router.get('/users', UserController.getAllUsers)
 router.get('/currentUser',UserMiddleware.authenticate, UserController.getCurrentUser)
-// atnaujinti userio descriptionui
-router.post('/user',UserMiddleware.authenticate, UserController.updateUserInfo)
+// atnaujinti userio duomenim
+router.post('/user', UserMiddleware.authenticate, upload.single('test'), UserController.updateUserInfo)
 // failu ikelimas(NETIKRINAU AR VEIKIA NES NEZINAU KAIP DABAR PATIKRINT BE FE, KAI BUS FRONT ENDAS TADA TURBUT ZIURESIM)
 router.post('/uploads', UserMiddleware.authenticate, upload.single('test'), UserController.changePicture)
 
