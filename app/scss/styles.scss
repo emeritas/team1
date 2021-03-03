@@ -212,6 +212,7 @@ header {
 .read-more-block{
   opacity: 0;
   visibility: hidden;
+  overflow: hidden;
   height:0;
   transition:all 0.3s ease-in-out;
 }
@@ -254,7 +255,6 @@ header {
   }
   .oneUserblogItem__info {
     margin-top: 20px;
-    overflow: hidden;
     h3 {
       margin-bottom: 5px;
       font-size: 22px;

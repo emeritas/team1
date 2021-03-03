@@ -27,7 +27,7 @@ if(localStorage.getItem('loggedIn') === 'true') {
     userAvatar();
 }
 
-if(window.location.href === `http://127.0.0.1:5501/app/index.html`) getAllPostsAndPopulateUI()
+if(window.location.href === "http://127.0.0.1:5500/app/index.html") getAllPostsAndPopulateUI();
 
 if(loggedIn) userAvatar()
 async function userAvatar() {
@@ -140,7 +140,6 @@ if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('logged
         })
         if(response.status != 200) throw await response.json()
         let allItems = await response.json()
-        
         allItems.forEach(currentItem => {
             output.innerHTML += `
             <div class="col-md-6 col-sm-12">
