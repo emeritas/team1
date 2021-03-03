@@ -22,7 +22,7 @@ async function getCategories() {
                 option = document.createElement("option");
                 option.classList = "single-category";
                 option.innerText = category.title;
-                option.dataset.id = category._id;
+                option.dataset.category = category.title;
                 option.value = category.title;
             }
             reviewCategory.append(option)
@@ -36,7 +36,7 @@ async function getCategories() {
 submit.addEventListener('click', async (e)=> {
     e.preventDefault();
     let title = reviewTitle.value;
-    let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.id;
+    let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.category;
     let content = reviewContent.value;
 
     let file = document.getElementById('fileInput').files[0]

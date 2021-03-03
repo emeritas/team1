@@ -59,6 +59,8 @@ router.post('/blog/uploads', UserMiddleware.authenticate, upload.single('test'),
 router.patch('/blog/:id', UserMiddleware.authenticate, BlogControler.updateBlog)
 // gauti visus blogo irasus
 router.get('/getAllBlogs', BlogControler.getActuallyAllBlogs)
+// istrinti visus blogo irasus
 router.delete('/blogKillAll', BlogControler.deleteAllBlogs)
-
+// gauti visus blogo irasus pagal kategorija
+router.post('/blogsByCategory', BlogControler.getBlogsByCategory)
 module.exports = router

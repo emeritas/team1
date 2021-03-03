@@ -175,6 +175,7 @@ async function getAllPostsAndPopulateUI() {
         console.log(e)
     }
 }
+
 // READ MORE nu cia idomiai idomiai :)
 function readMoreCollapse() {
     const readMoreBtns = document.querySelectorAll('.read-more');
@@ -203,7 +204,9 @@ function readMoreCollapse() {
             console.log(collapsibleItem.classList)
         })
     })
-} 
+}
+
+
 
 
 

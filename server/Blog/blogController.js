@@ -5,9 +5,7 @@ const Blog = require('./blogModel')
 saveBlog = async (req, res) => {
     let body = req.body;
     let file = req.file;
-    console.log(req.user)
-    /* console.log(body)
-    console.log(req.user) */
+    
     let blog = new Blog({
         content: body.content,
         title: body.title,
@@ -36,6 +34,14 @@ getAllBlog = (req, res) => {
 
 getActuallyAllBlogs = (req,res) => {
     Blog.find({}, (items,err) => {
+        if(err) return res.json(err)
+        res.json(items)
+    })
+}
+
+getBlogsByCategory = (req,res) => {
+    console.log(req.body)
+    Blog.find({category: req.body.title}, (items, err) => {
         if(err) return res.json(err)
         res.json(items)
     })
@@ -87,5 +93,6 @@ module.exports = {
     addCoverImage,
     updateBlog,
     getActuallyAllBlogs,
-    deleteAllBlogs
+    deleteAllBlogs,
+    getBlogsByCategory
 }
