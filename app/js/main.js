@@ -210,6 +210,10 @@ async function getAllPostsAndPopulateUI() {
 // filterButtons.forEach(button =>)
 
 
+// footer date
+document.querySelector("#current-year").innerHTML = new Date().getFullYear();
+
+
 
 
 
