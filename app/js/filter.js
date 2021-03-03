@@ -28,6 +28,46 @@ const getCategories = async () => {
         })
         const allFilterButtons = document.querySelectorAll('.filter__single-item')
         allFilterButtons.forEach(button => button.addEventListener('click', async () => {
+            console.log(button.dataset.name)
+            if(button.dataset.name === `All`) {
+                try {
+                    const response1 = await fetch('http://localhost:3001/api/getAllBlogs', {
+                    method:'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                let allBlogs = await response1.json()
+                console.log(allBlogs)
+                let output = document.getElementById('output')
+                output.innerHTML = '';
+                allBlogs.forEach(blog => {
+                    output.innerHTML += `
+                    <div class="col-md-6 col-sm-12">
+                        <div class="oneUserblogItem card card--dark mb-3">
+                            <div class="oneUserblogItem__image">
+                                <img src="${blog.coverImageURL}" alt="">
+                            </div>
+                            <div class="oneUserblogItem__info">
+                                <h3>${blog.title}</h3>
+                                <h4>${blog.author}</h4>
+                                <p id='desc${i}' class="blogItem__description">${blog.content}</p>
+                                <div class="collapse" id="collapseExample${i}">
+                                    <div id='collapsible-item${i}' class="collapse-item">
+                                        <p id='collapse-item${i}'>${blog.content}</p>
+                                    </div>
+                                </div>
+                                <button data-toggle="collapse" href="#collapseExample${i}" class="read-more btn btn-warning">Read More</button>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                })
+                }catch(e){
+                    console.log(e)
+                }
+                return false
+            }
             let name = button.dataset.name
             try {
                 let data = {
@@ -63,7 +103,6 @@ const getCategories = async () => {
                         </div>
                     </div>
                     `
-
                 })
             }catch(e){
                 console.log(e)

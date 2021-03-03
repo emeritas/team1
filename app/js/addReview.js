@@ -22,7 +22,7 @@ async function getCategories() {
                 option = document.createElement("option");
                 option.classList = "single-category";
                 option.innerText = category.title;
-                option.dataset.category = category.title;
+                option.dataset.category = category._id;
                 option.value = category.title;
             }
             reviewCategory.append(option)
@@ -38,7 +38,7 @@ submit.addEventListener('click', async (e)=> {
     let title = reviewTitle.value;
     let category = reviewCategory.options[reviewCategory.selectedIndex].dataset.category;
     let content = reviewContent.value;
-
+    
     let file = document.getElementById('fileInput').files[0]
     let formData = new FormData()
     formData.append('test', file)

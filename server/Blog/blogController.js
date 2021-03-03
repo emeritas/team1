@@ -5,7 +5,7 @@ const Blog = require('./blogModel')
 saveBlog = async (req, res) => {
     let body = req.body;
     let file = req.file;
-    
+    console.log(body)
     let blog = new Blog({
         content: body.content,
         title: body.title,
@@ -40,7 +40,6 @@ getActuallyAllBlogs = (req,res) => {
 }
 
 getBlogsByCategory = (req,res) => {
-    console.log(req.body)
     Blog.find({category: req.body.title}, (items, err) => {
         if(err) return res.json(err)
         res.json(items)
