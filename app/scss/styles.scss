@@ -190,13 +190,16 @@ header {
 }
 
 // Filter
+.filter{
+  flex-wrap: wrap;
+}
 .filter-wrapper {
   margin-bottom: 25px;
 }
 .filter__single-item {
   padding: 3px 20px 5px 20px;
   border-radius: 20px;
-  margin: 0 5px;
+  margin: 0 5px 10px 0;
   cursor: pointer;
   background-color: #111114;
 }
