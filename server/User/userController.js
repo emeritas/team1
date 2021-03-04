@@ -14,7 +14,6 @@ signUp = async (req, res) => {
 
 login = async (req, res) => {
   try {
-    console.log(req.body)
     let user = await User.findOne({
       username: req.body.username
     })
@@ -63,7 +62,6 @@ logout = async (req, res) => {
 changePicture = async (req, res) => {
   let file = req.file;
   let user = req.user;
-  console.log(file)
   try {
     user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
     await user.save()
