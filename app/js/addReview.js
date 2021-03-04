@@ -72,7 +72,7 @@ submit.addEventListener('click', async (e)=> {
     })
     if(response.status != 200) throw await response.json()
     let blog = await response.json()
-    
+    window.location.href = 'app/pages/view-my-profile.html';
     }catch(e) {
         document.getElementById('sub-err').innerHTML = e
     }

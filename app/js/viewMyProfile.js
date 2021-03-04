@@ -89,9 +89,9 @@ setUserName = async () => {
         let user = await response.json();
         profilePic.src = `${user.profileImageURL}`
         if(user.description) userDescription.innerText = `${user.description}`
+        blogAuthor.innerText = user.username;
     } catch(e) {
         console.log(e)
     }
-    blogAuthor.innerText = JSON.parse(localStorage.getItem("blog-username"));
 }
 
