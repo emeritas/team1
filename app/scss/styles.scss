@@ -31,7 +31,7 @@ h1 {
 }
 
 .main-bg {
-  min-height: 81vh;
+  min-height: 83vh;
   h1,
   h2,
   h3,
@@ -209,34 +209,34 @@ header {
 }
 
 // Read Reviews
-.read-more-block{
+.read-more-block {
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
-  height:0;
-  transition:all 0.3s ease-in-out;
+  height: 0;
+  transition: all 0.3s ease-in-out;
 }
 
-.less-btn{
-  display:none;
+.less-btn {
+  display: none;
   pointer-events: none;
 }
-.more-btn{
-  display:block;
+.more-btn {
+  display: block;
   pointer-events: none;
 }
 
-.show{
-  .read-more-block{
+.show {
+  .read-more-block {
     opacity: 1;
-    visibility:visible;
-    height:100%;
+    visibility: visible;
+    height: 100%;
   }
-  .less-btn{
-    display:block;
+  .less-btn {
+    display: block;
   }
-  .more-btn{
-    display:none;
+  .more-btn {
+    display: none;
   }
 }
 
@@ -436,7 +436,6 @@ footer {
   animation-fill-mode: both;
 }
 
-
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
@@ -447,9 +446,9 @@ footer {
 
   to {
     opacity: 1;
-    -ms-transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 
@@ -463,9 +462,9 @@ footer {
 
   to {
     opacity: 1;
-    -ms-transform: scale(1.0);
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
+    -ms-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 
@@ -473,7 +472,6 @@ footer {
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
-
 
 @-webkit-keyframes fadeOut {
   from {
