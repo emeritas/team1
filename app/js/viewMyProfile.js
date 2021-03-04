@@ -90,6 +90,7 @@ setUserName = async () => {
         profilePic.src = `${user.profileImageURL}`
         blogAuthor.innerHTML = `${user.username}`
         if(user.description) userDescription.innerText = `${user.description}`
+        blogAuthor.innerText = user.username;
     } catch(e) {
         console.log(e)
     }
