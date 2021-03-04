@@ -10,13 +10,13 @@ const webtok1 = localStorage.getItem('blog-user-id');
 
 submit.addEventListener('click', async (e)=> {
     e.preventDefault();
-    let username = inputUsername.value;
+    /* let username = inputUsername.value; */
     let password = inputPassword.value;
     let password2 = inputPassword2.value;
     let description = InputDescription.value;
     let email = inputEmail.value;
     let file = document.getElementById('fileInput').files[0]
-    if(!username && !password && !password2 && !description && !email && !file) {
+    if(/* !username &&  */!password && !password2 && !description && !email && !file) {
         document.getElementById('sub-err').innerHTML = `Please enter a field you wish to change`
         return false
     }
@@ -26,7 +26,7 @@ submit.addEventListener('click', async (e)=> {
     }
     let formData = new FormData()
     formData.append('test', file)
-    formData.append('username', username)
+    /* formData.append('username', username) */
     formData.append('password', password)
     formData.append('password2', password2)
     formData.append('description', description)
@@ -46,7 +46,7 @@ submit.addEventListener('click', async (e)=> {
     if(user === `Incorrect password`){ document.getElementById('sub-err').innerHTML = `Incorrect password. Other data changed succesfully`}
     if(!user || user !== `Incorrect password`){
         document.getElementById('sub-err').innerHTML = `Information successfuly changed`
-        inputUsername.value = '';
+        /* inputUsername.value = ''; */
         inputPassword.value = '';
         inputPassword2.value = '';
         InputDescription.value = '';

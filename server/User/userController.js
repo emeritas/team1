@@ -85,7 +85,7 @@ updateUserInfo = async(req,res) => {
       }
        if(req.body.description) user.description = req.body.description;
        if(req.body.email) user.email = req.body.email;
-       if(req.body.username)user.username = req.body.username;
+       /* if(req.body.username)user.username = req.body.username; */
        if(user.profileImageURL && file !== undefined){
           user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
         }else if(!user.profileImageURL){
@@ -107,6 +107,13 @@ getAllUsers = async (req,res) => {
     }
 }
 
+deleteAllUsers = (req,res) => {
+  User.remove({}, (items,err) => {
+      if(err) return res.json(err)
+      res.json(items)
+  })
+}
+
 getCurrentUser = async (req,res) => {
   let user = req.user;
   try {
@@ -123,5 +130,6 @@ module.exports = {
   changePicture,
   getAllUsers,
   updateUserInfo,
-  getCurrentUser
+  getCurrentUser,
+  deleteAllUsers
 }
