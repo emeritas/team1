@@ -38,6 +38,8 @@ router.get('/currentUser',UserMiddleware.authenticate, UserController.getCurrent
 router.post('/user', UserMiddleware.authenticate, upload.single('test'), UserController.updateUserInfo)
 // failu ikelimas(NETIKRINAU AR VEIKIA NES NEZINAU KAIP DABAR PATIKRINT BE FE, KAI BUS FRONT ENDAS TADA TURBUT ZIURESIM)
 router.post('/uploads', UserMiddleware.authenticate, upload.single('test'), UserController.changePicture)
+//visu useriu naikinimas
+router.delete('/killAllUsers', UserController.deleteAllUsers)
 
 // Category routes
 router.post('/category/add', CategoryController.addCategory)
