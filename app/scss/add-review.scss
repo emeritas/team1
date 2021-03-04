@@ -1,0 +1,14 @@
+// Variables
+/* Colors*/
+$primary-color: #ffc107;
+$main-bg-color: #101013e3;
+
+// helpers
+.grey-bg {
+  background-color: $main-bg-color;
+  color: #fff;
+}
+
+.add-review-form {
+  width: 100%;
+}

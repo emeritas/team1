@@ -14,14 +14,13 @@ mongoose.connect('mongodb://localhost/reviews-db', {
 })
 
 const corsOptions = {
-    exposedHeaders: ['todo-auth']
+	exposedHeaders: ['blog-user-id']
 }
+
 app.use(cors(corsOptions))
 
-app.use(bodyParser.json());
-
+app.use(bodyParser.json())
+app.use('/uploads', express.static('uploads'))
 app.use('/api', routes);
 
-app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
-});
+app.listen(port);

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add review</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/add-review.css">
+    
+    <!-- JS -->
+    <script defer src="./js/main.js"></script>
+    <script defer src="./js/addReview.js"></script>
+
+</head>
+<body>
+    <header>
+        <div class="container d-flex justify-content-between">
+            <div class="logo d-flex align-items-center">
+                <a aria-label="brand-name" class="brand-name" href="/app/index.html">Postal</a>
+            </div>
+            <ul class="sign-in-triggers d-flex align-items-center">
+                <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalRegisterForm" id="signup">Signup</button></li>
+                <li class="signup-button"><button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#ModalLoginForm" id="login">Login</button></li>
+                <li id="loggedIn" class="avatar">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img id="userAvatar" class="user-avatar" src="https://images.unsplash.com/photo-1614114531011-26afb982f0ef?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80" alt="">
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="./userProfile.html">Edit User Settings</a>
+                        <a class="dropdown-item" href="./add-review.html">Create A New Review</a>
+                        <a id="viewMyProfile" class="dropdown-item" href="./pages/view-my-profile.html">View My Reviews</a>
+                        <div class="dropdown-divider"></div>
+                        <a id="logout" class="dropdown-item" href="#">Logout</a>
+                      </div>
+                </li>
+            </ul>
+        </div>
+        <div id="ModalRegisterForm" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Register</h2>
+                    </div>
+                    <div class="modal-body">
+                        <form id="register">
+                            <input type="hidden" name="_token" value="">
+                            <div class="form-group">
+                                <label class="control-label">E-Mail Address</label>
+                                <div>
+                                    <input id="email-register" required type="email" class="form-control input-lg" name="email" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Username</label>
+                                <div>
+                                    <input id="username-register" required type="text" class="form-control input-lg" name="username" value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Password</label>
+                                <div>
+                                    <input id="password-register" required type="password" class="form-control input-lg" name="password">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="form-group__title">
+                                    <button id="registerSubmit" type="submit" class="btn btn-warning register">Register</button>
+                                    <p id="err-register" class="err"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <div id="ModalLoginForm" class="modal fade">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Login</h2>
+                    </div>
+                        <div class="modal-body">
+                            <form role="form" id="login">
+                                <input type="hidden" name="_token" value="">
+                                <div class="form-group">
+                                    <label class="control-label">Username</label>
+                                    <div>
+                                        <input id="username-login" required type="text" class="form-control input-lg" name="username" value="">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Password</label>
+                                    <div>
+                                        <input id="password-login" required type="password" class="form-control input-lg" name="password">
+                                    </div>
+                                </div>
+                                <div class="form-group form-group__title">
+                                    <div>
+                                        <button id="loginSubmit" type="submit" class="btn btn-warning login">Login</button>
+                                        <p id="err-login" class="err"></p>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <section class="section grey-bg">            
+                <div class="container text-center">                    
+                    <h1 class="main-title mb-5">Add new review</h1>
+                    <div class="row" id="row_style">
+                        <form class="justify-content-center d-flex add-review-form">
+                            <div class="col-md-8 col-md-offset-4">
+                                <div class="form-group">
+                                    <input type="text" id="review-title" class="form-control field-style" placeholder="Title">
+                                </div>
+                                <div class="selectWrapper field-style">
+                                    <select name="category" id="category" class="categories">
+                                    </select>
+                                </div>
+                                <div class="form-group d-flex flex-column justify-content-center">
+                                    <label for="InputBackground">Upload File To Add A Background Image To Your Review</label>
+                                    <input type="file" id="fileInput" class="form-control__file btn btn-warning" id="InputBackground">
+                                </div>
+                                <textarea id="review-content" placeholder="Reviews Content" class="editor field-style"></textarea>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-warning btn-md" id="submit-review">Submit new review</button>
+                                </div>
+                                <div class="submit-err">
+                                    <p id="sub-err"></p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; All rights reserved | <span id="current-year"></span></p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -160,7 +160,3 @@ footer {
       margin: 0 20px;
       color: rgba(255, 255, 255, 0.226);
       cursor: pointer; }
-
-@media screen and (min-width: 1040px) {
-  main .container-sm .row .col-sm-4 .profilePicture {
-    margin: 200px auto auto auto; } }
