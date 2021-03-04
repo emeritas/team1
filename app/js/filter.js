@@ -3,6 +3,12 @@ const filter = document.getElementById('filter');
 
 // Get categories for filter
 const getCategories = async () => {
+    if(new Date().getMonth()+1<10) {
+        document.getElementById('filter-month').innerHTML = `0${new Date().getMonth()+1}`;
+    } else {
+        document.getElementById('filter-month').innerHTML = new Date().getMonth()+1;
+    }
+    document.getElementById('filter-year').innerHTML = new Date().getFullYear();
     try{
     const response = await fetch('http://localhost:3001/api/category/get', {
         method: "GET",
@@ -32,6 +38,7 @@ const getCategories = async () => {
             allFilterButtons.forEach(buttonz => {
                 buttonz.classList.remove('current')
             })
+            document.getElementById('filter-review').innerHTML = button.innerHTML 
             button.classList.add('current')
             
             if(button.dataset.name === `All`) {

@@ -21,7 +21,7 @@ submit.addEventListener('click', async (e)=> {
         return false
     }
     if(password && !password2 || !password && password2) {
-        document.getElementById('sub-err').innerHTML = `Please enter both passwords: the one you youse and the new password`
+        document.getElementById('sub-err').innerHTML = `Please enter both passwords: the one you use and the new password`
         return false
     }
     let formData = new FormData()
@@ -41,10 +41,18 @@ submit.addEventListener('click', async (e)=> {
         },
         body:formData
     })
-    if(response.status != 200) throw await response.json()
     let user = await response.json()
     
+    if(user === `Incorrect password`){ document.getElementById('sub-err').innerHTML = `Incorrect password. Other data changed succesfully`}
+    if(!user || user !== `Incorrect password`){
+        document.getElementById('sub-err').innerHTML = `Information successfuly changed`
+        inputUsername.value = '';
+        inputPassword.value = '';
+        inputPassword2.value = '';
+        InputDescription.value = '';
+        inputEmail.value = '';
+    }
     }catch(e) {
-        console.log(e)
+        
     }
 })
