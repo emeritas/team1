@@ -21,7 +21,7 @@ h1 {
   font-size: 1.5rem; }
 
 .main-bg {
-  min-height: 81vh; }
+  min-height: 83vh; }
   .main-bg h1,
   .main-bg h2,
   .main-bg h3,
@@ -139,6 +139,9 @@ header {
 
 .filter__single-item.current, .filter__single-item:hover {
   color: #ffc107; }
+
+#sub-err {
+  margin-top: 15px; }
 
 .read-more-block {
   opacity: 0;
