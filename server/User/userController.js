@@ -90,7 +90,7 @@ updateUserInfo = async(req,res) => {
        if(req.body.username)user.username = req.body.username;
        if(user.profileImageURL && file !== undefined){
           user.profileImageURL = `http://localhost:3001/uploads/${file.filename}`
-        }else{
+        }else if(!user.profileImageURL){
           user.profileImageURL = `http://localhost:3001/uploads/1614798015243-neaiskus.png`;
         }
        await user.save();
