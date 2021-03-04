@@ -83,15 +83,19 @@ if(localStorage.getItem('loggedIn') === `false` || !localStorage.getItem('logged
             },
             body:JSON.stringify(data)
         })
-        
-        if(response.status != 200) throw await response.json()
-        response.json()
+        if(!response){
+            loginErr.innerHTML = `Wrong username or password`
+            return false}
+        if(response.status != 200) throw await response.json();
+        let login = await response.json();
+        console.log(login)
         let token = response.headers.get('blog-user-id')
         localStorage.setItem('blog-user-id',token)
         localStorage.setItem('loggedIn',true)
         window.location.href = './index.html'
         } catch(e) {
-        loginErr.innerHTML = e
+            console.log(e)
+            loginErr.innerHTML = e;
         }
     })
     registerSubmit.addEventListener('click', async (e) =>{

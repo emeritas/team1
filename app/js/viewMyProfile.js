@@ -88,7 +88,7 @@ setUserName = async () => {
         if(response.status != 200) throw await response.json();
         let user = await response.json();
         profilePic.src = `${user.profileImageURL}`
-        userDescription.innerText = `${user.description}`
+        if(user.description) userDescription.innerText = `${user.description}`
     } catch(e) {
         console.log(e)
     }
