@@ -140,6 +140,9 @@ header {
 .filter__single-item.current, .filter__single-item:hover {
   color: #ffc107; }
 
+#sub-err {
+  margin-top: 15px; }
+
 .read-more-block {
   opacity: 0;
   visibility: hidden;
